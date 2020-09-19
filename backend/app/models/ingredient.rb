@@ -1,6 +1,6 @@
 class Ingredient < ApplicationRecord
   def name=(name)
-    super(name.singularize.titleize)
+    super(name.strip.titleize)
   end
 
   def preferred_measure=(measure)
