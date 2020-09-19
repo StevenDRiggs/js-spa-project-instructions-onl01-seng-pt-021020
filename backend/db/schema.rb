@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_18_233054) do
+ActiveRecord::Schema.define(version: 2020_09_19_033055) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "divisible", default: true, null: false
-    t.string "preferred_measure"
+    t.integer "preferred_measure_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "measures", force: :cascade do |t|
+    t.string "measure", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

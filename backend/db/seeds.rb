@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Ingredient.destroy_all()
+Measure.destroy_all()
+
+pinch = Measure.create('pinch')
+to_taste = Measure.create('to taste')
+tbsp = Measure.create('tbsp')
+
+Ingredient.create(
+  name: 'salt',
+  preferred_measure: pinch
+)
+
+Ingredient.create(
+  name: 'pepper',
+  preferred_measure: to_taste
+)
+
+Ingredient.create(
+  name: 'olive oil',
+  preferred_measure: tbsp
+)
