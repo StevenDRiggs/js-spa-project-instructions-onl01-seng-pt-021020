@@ -2,6 +2,7 @@
 
 Ingredient.destroy_all()
 Measure.destroy_all()
+Quantity.destroy_all()
 
 pinch = Measure.create('pinch')
 to_taste = Measure.create('to taste')
@@ -379,3 +380,10 @@ Ingredient.create(
   name: 'chicken',
   preferred_measure: lb
 )
+
+Quantity.create('1/8')
+Quantity.create('1/4')
+Quantity.create('1/2')
+Quantity.create('3/4')
+Quantity.create('1/3')
+Quantity.create('2/3')
