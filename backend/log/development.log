@@ -3374,3 +3374,990 @@ Processing by MeasuresController#index as */*
 Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 1.9ms)
 
 
+Started GET "/ingredients" for ::1 at 2020-09-20 15:35:22 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/steven/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 26ms (Views: 22.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 15:35:22 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 15:35:22 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 15:46:26 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 15:46:26 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 15:46:26 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 15:47:29 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 15:47:29 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 15:47:30 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 15:48:22 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 15:48:22 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 15:48:22 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 15:51:26 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 15:51:50 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 15:51:50 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 15:51:50 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 15:54:42 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 15:54:42 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 15:54:42 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.5ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 15:55:18 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 22ms (Views: 21.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 15:55:19 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 15:55:19 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 15:56:00 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (1.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 15:56:00 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 15:56:00 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 15:56:18 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 15:56:18 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 15:56:18 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:24:00 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:24:00 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:24:00 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:28:11 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:28:11 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:28:11 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:28:14 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:28:14 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:28:14 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.5ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:31:05 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:31:05 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:31:05 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:31:25 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:31:25 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:31:25 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:32:02 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:32:02 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:32:02 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:34:18 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:34:18 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:34:18 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:39:57 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:39:58 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.5ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:39:58 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:40:13 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:40:13 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:40:13 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.5ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:40:15 -0600
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for MeasuresController):
+  
+actionpack (5.2.4.4) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.4.4) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.4.4) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (5.2.4.4) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.4.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/ingredients" for ::1 at 2020-09-20 18:41:07 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 18ms (Views: 12.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:41:07 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:41:07 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:41:09 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:43:24 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:43:24 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:43:24 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:43:26 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."measure" = ? LIMIT ?[0m  [["measure", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:44:20 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:44:21 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:44:21 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:44:22 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:44:39 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 22ms (Views: 18.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:44:39 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:44:39 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:44:41 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:45:45 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:45:45 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:45:45 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:45:47 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x00007f8824887850>
+Did you mean?  try):
+  
+app/controllers/measures_controller.rb:8:in `show'
+Started GET "/ingredients" for ::1 at 2020-09-20 18:47:51 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/steven/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:47:51 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:47:51 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:47:53 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ (pry):3
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ (pry):4
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ (pry):6
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[36mCACHE Ingredient Load (0.0ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:9
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 120102ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:50:49 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/steven/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:50:49 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:50:49 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:50:51 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+Started GET "/ingredients" for ::1 at 2020-09-20 18:51:11 -0600
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:9
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 37467ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:51:29 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:51:29 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:51:40 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 21ms (Views: 16.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:51:40 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:51:40 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.5ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:51:41 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:9
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:51:56 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:51:56 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:51:56 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:51:58 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:9
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:52:18 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:52:18 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:52:18 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:52:21 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:9
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 204 No Content in 8ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:53:12 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:53:12 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:53:12 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:53:15 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:9
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/measures/Gruyere" for ::1 at 2020-09-20 18:54:47 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"Gruyere"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Gruyere"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:9
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `preferred_measure' for nil:NilClass):
+  
+app/controllers/measures_controller.rb:9:in `show'
+Started GET "/ingredients" for ::1 at 2020-09-20 18:56:44 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:56:45 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:56:45 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:56:47 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/measures/Gruyere" for ::1 at 2020-09-20 18:56:55 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"Gruyere"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Gruyere"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 18:59:37 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 18:59:37 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 18:59:37 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 18:59:40 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+  [1m[36mMeasure Load (0.5ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 19:05:49 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 19:05:49 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 19:05:49 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/measures/All-Purpose-Flour" for ::1 at 2020-09-20 19:05:55 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose-Flour"}
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose Flour"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/measures/All-Purpose" for ::1 at 2020-09-20 19:06:01 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"All-Purpose"}
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "All Purpose"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/measures/Egg-White-(Fl-Oz)" for ::1 at 2020-09-20 19:06:10 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"Egg-White-(Fl-Oz)"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Egg White (Fl Oz)"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-09-20 19:06:20 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/quantities" for ::1 at 2020-09-20 19:06:20 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-09-20 19:06:20 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures/Cheese" for ::1 at 2020-09-20 19:06:37 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"Cheese"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Cheese"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 41], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/measures/Milk" for ::1 at 2020-09-20 19:06:48 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"Milk"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Milk"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/measures/Powdered-Milk" for ::1 at 2020-09-20 19:07:05 -0600
+Processing by MeasuresController#show as */*
+  Parameters: {"id"=>"Powdered-Milk"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Powdered Milk"], ["LIMIT", 1]]
+  ↳ app/controllers/measures_controller.rb:8
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
