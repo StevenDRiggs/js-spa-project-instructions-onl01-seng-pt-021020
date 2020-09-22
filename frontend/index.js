@@ -133,19 +133,51 @@ function setMeasure() {
 }
 
 function addIngredientButton(menuDiv) {
+    if (!menuDiv.querySelector('button')) {
+        const ingredient = menuDiv.querySelector('input#ingredient-text')
+        const quantity = menuDiv.querySelector('input#quantity-text')
+        const measure = menuDiv.querySelector('input#measure-text')
+
+        if (ingredient.value && quantity.value && measure.value) {
+            const addBtn = document.createElement('button')
+            addBtn.textContent = 'Add Ingredient'
+            addBtn.addEventListener('click', event => {
+                event.preventDefault()
+                addIngredient(event.currentTarget.parentElement)
+            })
+            menuDiv.appendChild(addBtn)
+        } else {
+            const addBtn = menuDiv.querySelector('button')
+            if (addBtn) {
+                menuDiv.removeChild(addBtn)
+            }
+        }
+    }
+}
+
+function addIngredient(menuDiv) {
     const ingredient = menuDiv.querySelector('input#ingredient-text')
     const quantity = menuDiv.querySelector('input#quantity-text')
     const measure = menuDiv.querySelector('input#measure-text')
+    const addBtn = menuDiv.querySelector('button')
 
-    if (ingredient.value && quantity.value && measure.value) {
-        const addBtn = document.createElement('button')
-        addBtn.textContent = 'Add Ingredient'
-        //addBtn.addEventListener('click', event => {addIngredient(event.currentTarget.parent)})
-        menuDiv.appendChild(addBtn)
-    } else {
-        const addBtn = menuDiv.querySelector('button')
-        if (addBtn) {
-            menuDiv.removeChild(addBtn)
-        }
-    }
+    addBtn.parentElement.removeChild(addBtn)
+
+    const addedIngredient = ingredient.value
+    const addedQuantity = quantity.value
+    const addedMeasure = measure.value
+
+    menuDiv.removeChild(ingredient)
+    menuDiv.removeChild(quantity)
+    menuDiv.removeChild(measure)
+
+    const p = document.createElement('p')
+    p.innerHTML = `<span class="ingredient">${addedIngredient}</span> <span class="quantity">${addedQuantity}</span> <span class="measure">${addedMeasure}`
+    menuDiv.appendChild(p)
+
+    const newDiv = document.createElement('div')
+    newDiv.className = 'ingredient-menus'
+    menuDiv.parentElement.appendChild(newDiv)
+
+    loadIngredients()
 }
