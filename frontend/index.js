@@ -1,10 +1,15 @@
+Object.prototype.last = function () {
+    return this[this.length - 1]
+}
+
+
 const domain = 'http://localhost:3000'
 
 document.addEventListener('DOMContentLoaded', loadIngredients)
 
 function loadIngredients() {
-    const menus = document.querySelector('div#menus')
-//
+    const ingredientMenus = document.querySelector('div.ingredient-menus').parentElement.children.last()
+
     fetch(`${domain}/ingredients`)
         .then(response => response.json())
         .then(json => {
@@ -15,8 +20,9 @@ function loadIngredients() {
             datatext.setAttribute('list', 'ingredients')
             datatext.placeholder = 'Ingredient'
             datatext.addEventListener('change', setMeasure)
+            datatext.addEventListener('change', event => {addIngredientButton(event.currentTarget.parentElement)})
 
-            menus.appendChild(datatext)
+            ingredientMenus.appendChild(datatext)
 
             const datalist = document.createElement('datalist')
             datalist.id = 'ingredients'
@@ -30,19 +36,18 @@ function loadIngredients() {
                 }
             }).forEach(ing => {
                 const ingItem = document.createElement('option')
-                // ingItem.setAttribute('data-measure-id', ing.preferred_measure_id)
                 ingItem.textContent = ing.name
 
                 datalist.appendChild(ingItem)
             })
 
-            menus.appendChild(datalist)
+            ingredientMenus.appendChild(datalist)
         })
         .then(loadQuantities)
 }
 
 function loadQuantities() {
-    const menus = document.querySelector('div#menus')
+    const ingredientMenus = document.querySelector('div.ingredient-menus').parentElement.children.last()
 //
     fetch(`${domain}/quantities`)
         .then(response => response.json())
@@ -53,8 +58,9 @@ function loadQuantities() {
             datatext.id = 'quantity-text'
             datatext.setAttribute('list', 'quantities')
             datatext.placeholder = 'Quantity'
+            datatext.addEventListener('change', event => {addIngredientButton(event.currentTarget.parentElement)})
 
-            menus.appendChild(datatext)
+            ingredientMenus.appendChild(datatext)
 
             const datalist = document.createElement('datalist')
             datalist.id = 'quantities'
@@ -62,19 +68,18 @@ function loadQuantities() {
             const quantities = Array.from(json)
             quantities.forEach(quantity => {
                 const quantityItem = document.createElement('option')
-                // quantityItem.value = quantity.id
                 quantityItem.textContent = quantity.quantity
 
                 datalist.appendChild(quantityItem)
             })
 
-            menus.appendChild(datalist)
+            ingredientMenus.appendChild(datalist)
         })
         .then(loadMeasures)
 }
 
 function loadMeasures() {
-    const menus = document.querySelector('div#menus')
+    const ingredientMenus = document.querySelector('div.ingredient-menus').parentElement.children.last()
 //
     fetch(`${domain}/measures`)
         .then(response => response.json())
@@ -85,8 +90,9 @@ function loadMeasures() {
             datatext.id = 'measure-text'
             datatext.setAttribute('list', 'measures')
             datatext.placeholder = 'Measurement'
+            datatext.addEventListener('change', event => {addIngredientButton(event.currentTarget.parentElement)})
 
-            menus.appendChild(datatext)
+            ingredientMenus.appendChild(datatext)
 
             const datalist = document.createElement('datalist')
             datalist.id = 'measures'
@@ -101,13 +107,12 @@ function loadMeasures() {
                 }
             }).forEach(measure => {
                 const measureItem = document.createElement('option')
-                // measureItem.setAttribute('data-id', measure.id)
                 measureItem.textContent = measure.measure
 
                 datalist.appendChild(measureItem)
             })
 
-            menus.appendChild(datalist)
+            ingredientMenus.appendChild(datalist)
         })
 }
 
@@ -118,9 +123,29 @@ function setMeasure() {
     fetch(`${domain}/measures/${ingredient}`)
         .then(response => response.json())
         .then(json => {
-            if (json !== '') {
-                const measure = document.querySelector('input#measure-text')
+            const measure = document.querySelector('input#measure-text')
+            if (json.measure) {
                 measure.value = json.measure
+            } else {
+                measure.value = ''
             }
         })
+}
+
+function addIngredientButton(menuDiv) {
+    const ingredient = menuDiv.querySelector('input#ingredient-text')
+    const quantity = menuDiv.querySelector('input#quantity-text')
+    const measure = menuDiv.querySelector('input#measure-text')
+
+    if (ingredient.value && quantity.value && measure.value) {
+        const addBtn = document.createElement('button')
+        addBtn.textContent = 'Add Ingredient'
+        //addBtn.addEventListener('click', event => {addIngredient(event.currentTarget.parent)})
+        menuDiv.appendChild(addBtn)
+    } else {
+        const addBtn = menuDiv.querySelector('button')
+        if (addBtn) {
+            menuDiv.removeChild(addBtn)
+        }
+    }
 }
