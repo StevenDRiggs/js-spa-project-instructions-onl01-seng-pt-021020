@@ -161,23 +161,31 @@ function addIngredient(menuDiv) {
     const measure = menuDiv.querySelector('input#measure-text')
     const addBtn = menuDiv.querySelector('button')
 
-    addBtn.parentElement.removeChild(addBtn)
-
     const addedIngredient = ingredient.value
     const addedQuantity = quantity.value
     const addedMeasure = measure.value
 
-    menuDiv.removeChild(ingredient)
-    menuDiv.removeChild(quantity)
-    menuDiv.removeChild(measure)
+    Array.from(menuDiv.children).forEach(child => {menuDiv.removeChild(child)})
 
     const p = document.createElement('p')
     p.innerHTML = `<span class="ingredient">${addedIngredient}</span> <span class="quantity">${addedQuantity}</span> <span class="measure">${addedMeasure}`
     menuDiv.appendChild(p)
+
+    const removeBtn = document.createElement('button')
+    removeBtn.textContent = 'Remove'
+    removeBtn.addEventListener('click', event => {
+        event.preventDefault()
+        removeIngredient(event.currentTarget.parentElement) 
+    })
+    menuDiv.appendChild(removeBtn)
 
     const newDiv = document.createElement('div')
     newDiv.className = 'ingredient-menus'
     menuDiv.parentElement.appendChild(newDiv)
 
     loadIngredients()
+}
+
+function removeIngredient(ingDiv) {
+    ingDiv.parentElement.removeChild(ingDiv)
 }
