@@ -114,6 +114,39 @@ function loadMeasures() {
 
             ingredientMenus.appendChild(datalist)
         })
+        .then(addServings)
+}
+
+function addServings() {
+    const originalServings = document.querySelector('input#original-servings')
+    const desiredServings = document.querySelector('input#desired-servings')
+    const fieldset = document.querySelector('fieldset')
+
+    if (!originalServings) {
+        const originalServings = document.createElement('input')
+        originalServings.type = 'number'
+        originalServings.name = 'original-servings'
+        originalServings.id = 'original-servings'
+        originalServings.placeholder = 'Makes how many servings?'
+
+        fieldset.appendChild(originalServings)
+    } else {
+        fieldset.removeChild(originalServings)
+        fieldset.appendChild(originalServings)
+    }
+
+    if (!desiredServings) {
+        const desiredServings = document.createElement('input')
+        desiredServings.type = 'number'
+        desiredServings.name = 'desired-servings'
+        desiredServings.id = 'desired-servings'
+        desiredServings.placeholder = 'How many servings do you want to make?'
+
+        fieldset.appendChild(desiredServings)
+    } else {
+        fieldset.removeChild(desiredServings)
+        fieldset.appendChild(desiredServings)
+    }
 }
 
 function setMeasure() {
