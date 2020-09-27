@@ -11,6 +11,10 @@ class Meta {
     static findById(klass, id) {
         return klass.all.find(instance => instance.id === id)
     }
+
+    static findBy(klass, attr, val) {
+        return klass.all.find(instance => instance[attr] === val)
+    }
 }
 
 class Measure extends Meta {
@@ -28,6 +32,10 @@ class Measure extends Meta {
 
     static findById(id) {
         return super.findById(this, id)
+    }
+
+    static findBy(attr, val) {
+        return super.findBy(this, attr, val)
     }
 }
 Measure._all = []
@@ -48,6 +56,10 @@ class Quantity extends Meta {
     static findById(id) {
         return super.findById(this, id)
     }
+
+    static findBy(attr, val) {
+        return super.findBy(this, attr, val)
+    }
 }
 Quantity._all = []
 
@@ -58,7 +70,7 @@ class Ingredient extends Meta {
         this.name = name
         this.divisible = divisible
         this.preferred_measure = Measure.findById(preferred_measure_id)
-        
+
         Ingredient._all.push(this)
     }
 
@@ -69,6 +81,10 @@ class Ingredient extends Meta {
     static findById(id) {
         return super.findById(this, id)
     }
+
+    static findBy(attr, val) {
+        return super.findBy(this, attr, val)
+    }
 }
 Ingredient._all = []
 
@@ -78,169 +94,172 @@ const domain = 'http://localhost:3000'
 document.addEventListener('DOMContentLoaded', loadIngredients)
 
 function loadIngredients() {
-    const ingredientMenus = document.querySelector('div.ingredient-menus').parentElement.children.last()
-
     fetch(`${domain}/measures`)
         .then(response => response.json())
-        .then(json => {
-            Array.from(json).forEach(measure => {new Measure(measure)})
+        .then(json => {Array.from(json).forEach(measure => {new Measure(measure.id, measure.measure)})})
+        .then(() => {
+            fetch(`${domain}/ingredients`)
+                .then(response => response.json())
+                .then(json => {Array.from(json).forEach(ingredient => {new Ingredient(ingredient.id, ingredient.name, ingredient.divisible, ingredient.preferred_measure_id)})})
+                .then(() => {
+                    fetch(`${domain}/quantities`)
+                        .then(response => response.json())
+                        .then(json => {Array.from(json).forEach(quantity => {new Quantity(quantity.id, quantity.quantity)})})
+                        .then(buildMenus)
+                })
         })
-        .then(() => {console.log(JSON.stringify(Measure.all.to_json))})
-
-
-
-//            {
-//            const datatext = document.createElement('input')
-//            datatext.type = 'text'
-//            datatext.name = 'ingredients'
-//            datatext.id = 'ingredient-text'
-//            datatext.setAttribute('list', 'ingredients')
-//            datatext.placeholder = 'Ingredient'
-//            datatext.addEventListener('change', setMeasure)
-//            datatext.addEventListener('change', event => {addIngredientButton(event.currentTarget.parentElement)})
-//
-//            ingredientMenus.appendChild(datatext)
-//
-//            const datalist = document.createElement('datalist')
-//            datalist.id = 'ingredients'
-//            
-//            const ingredients = Array.from(json)
-//            ingredients.sort((ing1, ing2) => {
-//                if (ing1.name < ing2.name) {
-//                    return -1
-//                } else {
-//                    return 1
-//                }
-//            }).forEach(ing => {
-//                const ingItem = document.createElement('option')
-//                ingItem.textContent = ing.name
-//
-//                datalist.appendChild(ingItem)
-//            })
-//
-//            ingredientMenus.appendChild(datalist)
-//        })
-//        .then(loadQuantities)
 }
-//
-//function loadQuantities() {
-//    const ingredientMenus = document.querySelector('div.ingredient-menus').parentElement.children.last()
-////
-//    fetch(`${domain}/quantities`)
-//        .then(response => response.json())
-//        .then(json => {
-//            const datatext = document.createElement('input')
-//            datatext.type = 'text'
-//            datatext.name = 'quantities'
-//            datatext.id = 'quantity-text'
-//            datatext.setAttribute('list', 'quantities')
-//            datatext.placeholder = 'Quantity'
-//            datatext.addEventListener('change', event => {addIngredientButton(event.currentTarget.parentElement)})
-//
-//            ingredientMenus.appendChild(datatext)
-//
-//            const datalist = document.createElement('datalist')
-//            datalist.id = 'quantities'
-//            
-//            const quantities = Array.from(json)
-//            quantities.forEach(quantity => {
-//                const quantityItem = document.createElement('option')
-//                quantityItem.textContent = quantity.quantity
-//
-//                datalist.appendChild(quantityItem)
-//            })
-//
-//            ingredientMenus.appendChild(datalist)
-//        })
-//        .then(loadMeasures)
-//}
-//
-//function loadMeasures() {
-//    const ingredientMenus = document.querySelector('div.ingredient-menus').parentElement.children.last()
-////
-//    fetch(`${domain}/measures`)
-//        .then(response => response.json())
-//        .then(json => {
-//            const datatext = document.createElement('input')
-//            datatext.type = 'text'
-//            datatext.name = 'measures'
-//            datatext.id = 'measure-text'
-//            datatext.setAttribute('list', 'measures')
-//            datatext.placeholder = 'Measurement'
-//            datatext.addEventListener('change', event => {addIngredientButton(event.currentTarget.parentElement)})
-//
-//            ingredientMenus.appendChild(datatext)
-//
-//            const datalist = document.createElement('datalist')
-//            datalist.id = 'measures'
-//            datalist.name = 'measures'
-//            
-//            const measures = Array.from(json)
-//            measures.sort((measure1, measure2) => {
-//                if (measure1.measure < measure2.measure) {
-//                    return -1
-//                } else {
-//                    return 1
-//                }
-//            }).forEach(measure => {
-//                const measureItem = document.createElement('option')
-//                measureItem.textContent = measure.measure
-//
-//                datalist.appendChild(measureItem)
-//            })
-//
-//            ingredientMenus.appendChild(datalist)
-//        })
-//        .then(addServings)
-//}
-//
-//function addServings() {
-//    const originalServings = document.querySelector('input#original-servings')
-//    const desiredServings = document.querySelector('input#desired-servings')
-//    const fieldset = document.querySelector('fieldset')
-//
-//    if (!originalServings) {
-//        const originalServings = document.createElement('input')
-//        originalServings.type = 'number'
-//        originalServings.name = 'original-servings'
-//        originalServings.id = 'original-servings'
-//        originalServings.placeholder = 'Makes how many servings?'
-//
-//        fieldset.appendChild(originalServings)
-//    } else {
-//        fieldset.removeChild(originalServings)
-//        fieldset.appendChild(originalServings)
-//    }
-//
-//    if (!desiredServings) {
-//        const desiredServings = document.createElement('input')
-//        desiredServings.type = 'number'
-//        desiredServings.name = 'desired-servings'
-//        desiredServings.id = 'desired-servings'
-//        desiredServings.placeholder = 'How many servings do you want to make?'
-//
-//        fieldset.appendChild(desiredServings)
-//    } else {
-//        fieldset.removeChild(desiredServings)
-//        fieldset.appendChild(desiredServings)
-//    }
-//}
-//
-//function setMeasure() {
-//    let ingredient = document.querySelector('input#ingredient-text').value
-//    ingredient = ingredient.split(/\s+/).join('-')
-//    
-//    fetch(`${domain}/measures/${ingredient}`)
-//        .then(response => response.json())
-//        .then(json => {
-//            const measure = document.querySelector('input#measure-text')
-//            if (json.measure) {
-//                measure.value = json.measure
-//            } else {
-//                measure.value = ''
-//            }
-//        })
-//}
+
+function buildMenus() {
+    const ingredientMenus = document.querySelector('div.ingredient-menus').parentElement.children.last()
+
+    buildIngredients(ingredientMenus)
+    buildQuantities(ingredientMenus)
+    buildMeasures(ingredientMenus)
+    addServings()
+}
+
+function buildIngredients(ingredientMenus) {
+    const ingredients = Ingredient.all.sort((ing1, ing2) => {
+        if (ing1.name < ing2.name) {
+            return -1
+        } else {
+            return 1
+        }
+    })
+
+    const datatext = document.createElement('input')
+    datatext.type = 'text'
+    datatext.name = 'ingredients'
+    datatext.id = 'ingredient-text'
+    datatext.setAttribute('list', 'ingredients')
+    datatext.placeholder = 'Ingredient'
+    datatext.addEventListener('change', setMeasure)
+    datatext.addEventListener('change', event => {addIngredientButton(event.currentTarget.parentElement)})
+
+    ingredientMenus.appendChild(datatext)
+
+    const datalist = document.createElement('datalist')
+    datalist.id = 'ingredients'
+
+    ingredients.forEach(ingredient => {
+        const ingItem = document.createElement('option')
+        ingItem.textContent = ingredient.name
+
+        datalist.appendChild(ingItem)
+    })
+
+    ingredientMenus.appendChild(datalist)
+}
+
+function buildQuantities(ingredientMenus) {
+    const quantities = Quantity.all
+
+    const datatext = document.createElement('input')
+    datatext.type = 'text'
+    datatext.name = 'quantities'
+    datatext.id = 'quantity-text'
+    datatext.setAttribute('list', 'quantities')
+    datatext.placeholder = 'Quantity'
+    datatext.addEventListener('change', event => {addIngredientButton(event.currentTarget.parentElement)})
+
+    ingredientMenus.appendChild(datatext)
+
+    const datalist = document.createElement('datalist')
+    datalist.id = 'quantities'
+
+    quantities.forEach(quantity => {
+        const quantityItem = document.createElement('option')
+        quantityItem.textContent = quantity.quantity
+
+        datalist.appendChild(quantityItem)
+    })
+
+    ingredientMenus.appendChild(datalist)
+}
+
+function buildMeasures(ingredientMenus) {
+    const measures = Measure.all.sort((measure1, measure2) => {
+        if (measure1.measure < measure2.measure) {
+            return -1
+        } else {
+            return 1
+        }
+    })
+
+    const datatext = document.createElement('input')
+    datatext.type = 'text'
+    datatext.name = 'measures'
+    datatext.id = 'measure-text'
+    datatext.setAttribute('list', 'measures')
+    datatext.placeholder = 'Measurement'
+    datatext.addEventListener('change', event => {addIngredientButton(event.currentTarget.parentElement)})
+
+    ingredientMenus.appendChild(datatext)
+
+    const datalist = document.createElement('datalist')
+    datalist.id = 'measures'
+    datalist.name = 'measures'
+
+    measures.forEach(measure => {
+        const measureItem = document.createElement('option')
+        measureItem.textContent = measure.measure
+
+        datalist.appendChild(measureItem)
+    })
+
+    ingredientMenus.appendChild(datalist)
+}
+
+function addServings() {
+    let originalServings = document.querySelector('input#original-servings')
+    let desiredServings = document.querySelector('input#desired-servings')
+    const fieldset = document.querySelector('fieldset')
+
+    if (!originalServings) {
+        originalServings = document.createElement('input')
+        originalServings.type = 'number'
+        originalServings.name = 'original-servings'
+        originalServings.id = 'original-servings'
+        originalServings.placeholder = 'Makes # servings?'
+
+        fieldset.appendChild(originalServings)
+    } else {
+        fieldset.removeChild(originalServings)
+        fieldset.appendChild(originalServings)
+    }
+
+    if (!desiredServings) {
+        desiredServings = document.createElement('input')
+        desiredServings.type = 'number'
+        desiredServings.name = 'desired-servings'
+        desiredServings.id = 'desired-servings'
+        desiredServings.placeholder = 'Want to make # servings'
+
+        fieldset.appendChild(desiredServings)
+    } else {
+        fieldset.removeChild(desiredServings)
+        fieldset.appendChild(desiredServings)
+    }
+}
+
+function setMeasure() {
+    let newIngredient = document.querySelector('input#ingredient-text').value
+    newIngredient = newIngredient.split(/\s+/).join('-')
+
+
+    
+    fetch(`${domain}/measures/${ingredient}`)
+        .then(response => response.json())
+        .then(json => {
+            const measure = document.querySelector('input#measure-text')
+            if (json.measure) {
+                measure.value = json.measure
+            } else {
+                measure.value = ''
+            }
+        })
+}
 //
 //function addIngredientButton(menuDiv) {
 //    if (!menuDiv.querySelector('button')) {
@@ -292,10 +311,10 @@ function loadIngredients() {
 //    const newDiv = document.createElement('div')
 //    newDiv.className = 'ingredient-menus'
 //    menuDiv.parentElement.appendChild(newDiv)
-//
+    //
 //    loadIngredients()
 //}
 //
 //function removeIngredient(ingDiv) {
-//    ingDiv.parentElement.removeChild(ingDiv)
+    //    ingDiv.parentElement.removeChild(ingDiv)
 //}
