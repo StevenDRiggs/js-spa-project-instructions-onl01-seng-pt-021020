@@ -260,61 +260,62 @@ function setMeasure() {
             }
         })
 }
-//
-//function addIngredientButton(menuDiv) {
-//    if (!menuDiv.querySelector('button')) {
-//        const ingredient = menuDiv.querySelector('input#ingredient-text')
-//        const quantity = menuDiv.querySelector('input#quantity-text')
-//        const measure = menuDiv.querySelector('input#measure-text')
-//
-//        if (ingredient.value && quantity.value && measure.value) {
-//            const addBtn = document.createElement('button')
-//            addBtn.textContent = 'Add Ingredient'
-//            addBtn.addEventListener('click', event => {
-//                event.preventDefault()
-//                addIngredient(event.currentTarget.parentElement)
-//            })
-//            menuDiv.appendChild(addBtn)
-//        } else {
-//            const addBtn = menuDiv.querySelector('button')
-//            if (addBtn) {
-//                menuDiv.removeChild(addBtn)
-//            }
-//        }
-//    }
-//}
-//
-//function addIngredient(menuDiv) {
-//    const ingredient = menuDiv.querySelector('input#ingredient-text')
-//    const quantity = menuDiv.querySelector('input#quantity-text')
-//    const measure = menuDiv.querySelector('input#measure-text')
-//    const addBtn = menuDiv.querySelector('button')
-//
-//    const addedIngredient = ingredient.value
-//    const addedQuantity = quantity.value
-//    const addedMeasure = measure.value
-//
-//    Array.from(menuDiv.children).forEach(child => {menuDiv.removeChild(child)})
-//
-//    const p = document.createElement('p')
-//    p.innerHTML = `<span class="ingredient">${addedIngredient}</span> <span class="quantity">${addedQuantity}</span> <span class="measure">${addedMeasure}`
-//    menuDiv.appendChild(p)
-//
-//    const removeBtn = document.createElement('button')
-//    removeBtn.textContent = 'Remove'
-//    removeBtn.addEventListener('click', event => {
-//        event.preventDefault()
-//        removeIngredient(event.currentTarget.parentElement) 
-//    })
-//    menuDiv.appendChild(removeBtn)
-//
-//    const newDiv = document.createElement('div')
-//    newDiv.className = 'ingredient-menus'
-//    menuDiv.parentElement.appendChild(newDiv)
-    //
-//    loadIngredients()
-//}
-//
-//function removeIngredient(ingDiv) {
-    //    ingDiv.parentElement.removeChild(ingDiv)
-//}
+
+function addIngredientButton(menuDiv) {
+   if (!menuDiv.querySelector('button')) {
+       const ingredient = menuDiv.querySelector('input#ingredient-text')
+       const quantity = menuDiv.querySelector('input#quantity-text')
+       const measure = menuDiv.querySelector('input#measure-text')
+
+       if (ingredient.value && quantity.value && measure.value) {
+           const addBtn = document.createElement('button')
+           addBtn.textContent = 'Add Ingredient'
+           addBtn.addEventListener('click', event => {
+               event.preventDefault()
+               addIngredient(event.currentTarget.parentElement)
+           })
+           menuDiv.appendChild(addBtn)
+       } else {
+           const addBtn = menuDiv.querySelector('button')
+           if (addBtn) {
+               menuDiv.removeChild(addBtn)
+           }
+       }
+   }
+}
+
+//TODO: change to reflect OOJS & interact with db
+function addIngredient(menuDiv) {
+   const ingredient = menuDiv.querySelector('input#ingredient-text')
+   const quantity = menuDiv.querySelector('input#quantity-text')
+   const measure = menuDiv.querySelector('input#measure-text')
+   const addBtn = menuDiv.querySelector('button')
+
+   const addedIngredient = ingredient.value
+   const addedQuantity = quantity.value
+   const addedMeasure = measure.value
+
+   Array.from(menuDiv.children).forEach(child => {menuDiv.removeChild(child)})
+
+   const p = document.createElement('p')
+   p.innerHTML = `<span class="ingredient">${addedIngredient}</span> <span class="quantity">${addedQuantity}</span> <span class="measure">${addedMeasure}`
+   menuDiv.appendChild(p)
+
+   const removeBtn = document.createElement('button')
+   removeBtn.textContent = 'Remove'
+   removeBtn.addEventListener('click', event => {
+       event.preventDefault()
+       removeIngredient(event.currentTarget.parentElement) 
+   })
+   menuDiv.appendChild(removeBtn)
+
+   const newDiv = document.createElement('div')
+   newDiv.className = 'ingredient-menus'
+   menuDiv.parentElement.appendChild(newDiv)
+    
+   buildMenus()
+}
+
+function removeIngredient(ingDiv) {
+       ingDiv.parentElement.removeChild(ingDiv)
+}
