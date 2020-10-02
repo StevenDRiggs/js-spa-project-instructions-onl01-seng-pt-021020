@@ -62,8 +62,8 @@ You are encouraged to follow development best practices while you are building y
 
 #### JavaScript
 
-- [ ] Use classes and functions to organize your code into reusable pieces.
-- [ ] Translate JSON responses into JavaScript model objects using ES6 class or constructor function syntax.
+- [x] Use classes and functions to organize your code into reusable pieces.
+- [x] Translate JSON responses into JavaScript model objects using ES6 class or constructor function syntax.
 - [x] Use ES6 features when appropriate (e.g. arrow functions, `let` & `const`, rest and spread syntax).
 
 #### Rails

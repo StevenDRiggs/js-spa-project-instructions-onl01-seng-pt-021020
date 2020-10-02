@@ -4,30 +4,102 @@ Ingredient.destroy_all()
 Measure.destroy_all()
 Quantity.destroy_all()
 
-pinch = Measure.create('pinch')
-to_taste = Measure.create('to taste')
-tbsp = Measure.create('tbsp')
-fl_oz = Measure.create('fl oz')
-dry_cup = Measure.create('dry cup')
-wet_cup = Measure.create('wet cup')
-can_5_oz = Measure.create('can (5 oz)')
-can_6_oz = Measure.create('can (6 oz)')
-can_14_oz = Measure.create('can (14.5 oz)')
-can_15_oz = Measure.create('can (15 oz)')
-can_15_5_oz = Measure.create('can (15.5 oz)')
-can_28_oz = Measure.create('can (28 oz)')
-can_29_oz = Measure.create('can (29 oz)')
-jar_24_oz = Measure.create('jar (24 oz)')
-lb = Measure.create('lb')
-bunch_long_pasta = Measure.create('bunch (long pasta)')
-oz = Measure.create('oz')
-unit = Measure.create('unit')
-clove = Measure.create('clove')
-tsp = Measure.create('tsp')
-dash = Measure.create('dash')
-stick = Measure.create('stick')
-stick_8_oz = Measure.create('stick (8 oz)')
-cob = Measure.create('cob')
+pinch = Measure.create(
+  measure: 'pinch',
+  divisible: false
+)
+to_taste = Measure.create(
+  measure: 'to taste',
+  divisible: false
+)
+tbsp = Measure.create(
+  measure: 'tbsp',
+  divisible: true
+)
+fl_oz = Measure.create(
+  measure: 'fl oz',
+  divisible: true
+)
+dry_cup = Measure.create(
+  measure: 'dry cup',
+  divisible: true
+)
+wet_cup = Measure.create(
+  measure: 'wet cup',
+  divisible: true
+)
+can_5_oz = Measure.create(
+  measure: 'can (5 oz)',
+  divisible: true
+)
+can_6_oz = Measure.create(
+  measure: 'can (6 oz)',
+  divisible: true
+)
+can_14_oz = Measure.create(
+  measure: 'can (14.5 oz)',
+  divisible: true
+)
+can_15_oz = Measure.create(
+  measure: 'can (15 oz)',
+  divisible: true
+)
+can_15_5_oz = Measure.create(
+  measure: 'can (15.5 oz)',
+  divisible: true
+)
+can_28_oz = Measure.create(
+  measure: 'can (28 oz)',
+  divisible: true
+)
+can_29_oz = Measure.create(
+  measure: 'can (29 oz)',
+  divisible: true
+)
+jar_24_oz = Measure.create(
+  measure: 'jar (24 oz)',
+  divisible: true
+)
+lb = Measure.create(
+  measure: 'lb',
+  divisible: true
+)
+bunch_long_pasta = Measure.create(
+  measure: 'bunch (long pasta)',
+  divisible: false
+)
+oz = Measure.create(
+  measure: 'oz',
+  divisible: true
+)
+unit = Measure.create(
+  measure: 'unit',
+  divisible: false
+)
+clove = Measure.create(
+  measure: 'clove',
+  divisible: false
+)
+tsp = Measure.create(
+  measure: 'tsp',
+  divisible: true
+)
+dash = Measure.create(
+  measure: 'dash',
+  divisible: false
+)
+stick = Measure.create(
+  measure: 'stick',
+  divisible: false
+)
+stick_8_oz = Measure.create(
+  measure: 'stick (8 oz)',
+  divisible: true
+)
+cob = Measure.create(
+  measure: 'cob',
+  divisible: true
+)
 
 Ingredient.create(
   name: 'salt',
@@ -206,7 +278,6 @@ Ingredient.create(
 
 Ingredient.create(
   name: 'bay leaf',
-  divisible: false,
   preferred_measure: unit
 )
 
@@ -247,7 +318,6 @@ Ingredient.create(
 
 Ingredient.create(
   name: 'cinnamon stick',
-  divisible: false,
   preferred_measure: unit
 )
 
@@ -278,13 +348,11 @@ Ingredient.create(
 
 Ingredient.create(
   name: 'egg',
-  divisible: false, 
   preferred_measure: unit
 )
 
 Ingredient.create(
   name: 'egg white (unit)',
-  divisible: false, 
   preferred_measure: unit
 )
 
@@ -295,7 +363,6 @@ Ingredient.create(
 
 Ingredient.create(
   name: 'egg yolk',
-  divisible: false, 
   preferred_measure: unit
 )
 
@@ -366,13 +433,11 @@ Ingredient.create(
 
 Ingredient.create(
   name: 'chicken breast',
-  divisible: false, 
   preferred_measure: unit
 )
 
 Ingredient.create(
   name: 'chicken thigh',
-  divisible: false, 
   preferred_measure: unit
 )
 

@@ -12,4 +12,9 @@ class MeasuresController < ApplicationController
       render json: {measure: ''}
     end
   end
+
+  def create
+    measure = Measure.create(params[:measure])
+    render json: measure
+  end
 end

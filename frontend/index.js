@@ -18,10 +18,11 @@ class Meta {
 }
 
 class Measure extends Meta {
-    constructor(id, measure) {
+    constructor(id, measure, divisible) {
         super()
         this.id = id
         this.measure = measure
+        this.divisible = divisible
 
         Measure._all.push(this)
     }
@@ -64,12 +65,11 @@ class Quantity extends Meta {
 Quantity._all = []
 
 class Ingredient extends Meta {
-    constructor(id, name, divisible, preferred_measure_id) {
+    constructor(id, name, preferredMeasureId) {
         super()
         this.id = id
         this.name = name
-        this.divisible = divisible
-        this.preferred_measure = Measure.findById(preferred_measure_id)
+        this.preferredMeasure = Measure.findById(preferredMeasureId)
 
         Ingredient._all.push(this)
     }
@@ -96,11 +96,11 @@ document.addEventListener('DOMContentLoaded', loadIngredients)
 function loadIngredients() {
     fetch(`${domain}/measures`)
         .then(response => response.json())
-        .then(json => {Array.from(json).forEach(measure => {new Measure(measure.id, measure.measure)})})
+        .then(json => {Array.from(json).forEach(measure => {new Measure(measure.id, measure.measure, measure.divisible)})})
         .then(() => {
             fetch(`${domain}/ingredients`)
                 .then(response => response.json())
-                .then(json => {Array.from(json).forEach(ingredient => {new Ingredient(ingredient.id, ingredient.name, ingredient.divisible, ingredient.preferred_measure_id)})})
+                .then(json => {Array.from(json).forEach(ingredient => {new Ingredient(ingredient.id, ingredient.name, ingredient.preferred_measure_id)})}) // preferred_measure_id must be snake_case here for compatibility
                 .then(() => {
                     fetch(`${domain}/quantities`)
                         .then(response => response.json())
@@ -134,8 +134,10 @@ function buildIngredients(ingredientMenus) {
     datatext.id = 'ingredient-text'
     datatext.setAttribute('list', 'ingredients')
     datatext.placeholder = 'Ingredient'
-    datatext.addEventListener('change', setMeasure)
-    datatext.addEventListener('change', event => {addIngredientButton(event.currentTarget.parentElement)})
+    datatext.addEventListener('change', event => {
+        setMeasure(event.currentTarget.parentElement)
+        addIngredientButton(event.currentTarget.parentElement)
+    })
 
     ingredientMenus.appendChild(datatext)
 
@@ -193,7 +195,10 @@ function buildMeasures(ingredientMenus) {
     datatext.id = 'measure-text'
     datatext.setAttribute('list', 'measures')
     datatext.placeholder = 'Measurement'
-    datatext.addEventListener('change', event => {addIngredientButton(event.currentTarget.parentElement)})
+    datatext.addEventListener('change', event => {
+        setDivisible(event.currentTarget.parentElement)
+        addIngredientButton(event.currentTarget.parentElement)
+    })
 
     ingredientMenus.appendChild(datatext)
 
@@ -209,6 +214,19 @@ function buildMeasures(ingredientMenus) {
     })
 
     ingredientMenus.appendChild(datalist)
+
+    const divisibleLabel = document.createElement('label')
+    divisibleLabel.for = 'divisible'
+    divisibleLabel.textContent = 'Divisible Unit?'
+
+    ingredientMenus.appendChild(divisibleLabel) 
+
+    const divisibleCheckBox = document.createElement('input')
+    divisibleCheckBox.id = 'divisible'
+    divisibleCheckBox.name = 'divisible'
+    divisibleCheckBox.type = 'checkbox'
+
+    ingredientMenus.appendChild(divisibleCheckBox)
 }
 
 function addServings() {
@@ -243,79 +261,127 @@ function addServings() {
     }
 }
 
-function setMeasure() {
-    let newIngredient = document.querySelector('input#ingredient-text').value
-    newIngredient = newIngredient.split(/\s+/).join('-')
+function setMeasure(menuDiv) {
+    let newIngredient = menuDiv.querySelector('input#ingredient-text').value
+    newIngredient = Ingredient.findBy('name', newIngredient)
 
+    if (newIngredient) {
+        const preferredMeasure = newIngredient.preferredMeasure
+        if (preferredMeasure) {
+            const measure = menuDiv.querySelector('input#measure-text')
+            measure.value = preferredMeasure.measure
 
-    
-    fetch(`${domain}/measures/${ingredient}`)
-        .then(response => response.json())
-        .then(json => {
-            const measure = document.querySelector('input#measure-text')
-            if (json.measure) {
-                measure.value = json.measure
-            } else {
-                measure.value = ''
-            }
-        })
+            const divisible = menuDiv.querySelector('input#divisible')
+            divisible.checked = preferredMeasure.divisible
+        }
+    }
 }
 
 function addIngredientButton(menuDiv) {
-   if (!menuDiv.querySelector('button')) {
-       const ingredient = menuDiv.querySelector('input#ingredient-text')
-       const quantity = menuDiv.querySelector('input#quantity-text')
-       const measure = menuDiv.querySelector('input#measure-text')
+    if (!menuDiv.querySelector('button')) {
+        const ingredient = menuDiv.querySelector('input#ingredient-text')
+        const quantity = menuDiv.querySelector('input#quantity-text')
+        const measure = menuDiv.querySelector('input#measure-text')
 
-       if (ingredient.value && quantity.value && measure.value) {
-           const addBtn = document.createElement('button')
-           addBtn.textContent = 'Add Ingredient'
-           addBtn.addEventListener('click', event => {
-               event.preventDefault()
-               addIngredient(event.currentTarget.parentElement)
-           })
-           menuDiv.appendChild(addBtn)
-       } else {
-           const addBtn = menuDiv.querySelector('button')
-           if (addBtn) {
-               menuDiv.removeChild(addBtn)
-           }
-       }
-   }
+        if (ingredient.value && quantity.value && measure.value) {
+            const addBtn = document.createElement('button')
+            addBtn.textContent = 'Add Ingredient'
+            addBtn.addEventListener('click', event => {
+                event.preventDefault()
+                addIngredient(event.currentTarget.parentElement)
+            })
+            menuDiv.appendChild(addBtn)
+        } else {
+            const addBtn = menuDiv.querySelector('button')
+            if (addBtn) {
+                menuDiv.removeChild(addBtn)
+            }
+        }
+    }
+}
+
+function setDivisible(menuDiv) {
+    const measureText = menuDiv.querySelector('input#measure-text').value
+    const measure = Measure.findBy('measure', measureText)
+
+    if (measure) {
+        const divisible = menuDiv.querySelector('input#divisible')
+        divisible.checked = !!measure.divisible
+    }
 }
 
 //TODO: change to reflect OOJS & interact with db
 function addIngredient(menuDiv) {
-   const ingredient = menuDiv.querySelector('input#ingredient-text')
-   const quantity = menuDiv.querySelector('input#quantity-text')
-   const measure = menuDiv.querySelector('input#measure-text')
-   const addBtn = menuDiv.querySelector('button')
+    const ingredient = menuDiv.querySelector('input#ingredient-text')
+    const quantity = menuDiv.querySelector('input#quantity-text')
+    const measure = menuDiv.querySelector('input#measure-text')
+    const addBtn = menuDiv.querySelector('button')
 
-   const addedIngredient = ingredient.value
-   const addedQuantity = quantity.value
-   const addedMeasure = measure.value
+    const addedIngredient = ingredient.value
+    const addedQuantity = quantity.value
+    const addedMeasure = measure.value
 
-   Array.from(menuDiv.children).forEach(child => {menuDiv.removeChild(child)})
+    let ingredientObj = Ingredient.findBy('name', addedIngredient) 
+    let quantityObj = Quantity.findBy('quantity', addedQuantity) 
+    let measureObj = Measure.findBy('measure', addedMeasure) 
 
-   const p = document.createElement('p')
-   p.innerHTML = `<span class="ingredient">${addedIngredient}</span> <span class="quantity">${addedQuantity}</span> <span class="measure">${addedMeasure}`
-   menuDiv.appendChild(p)
+    if (!measureObj) {
+        fetch(`${domain}/measures`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({measure: addedMeasure})
+        })
+            .then(response => response.json())
+            .then(json => {measureObj = new Measure(json.id, json.measure)})
+    }
 
-   const removeBtn = document.createElement('button')
-   removeBtn.textContent = 'Remove'
-   removeBtn.addEventListener('click', event => {
-       event.preventDefault()
-       removeIngredient(event.currentTarget.parentElement) 
-   })
-   menuDiv.appendChild(removeBtn)
+    if (!quantityObj) {
+        fetch(`${domain}/quantities`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({quantity: addedQuantity})
+        })
+            .then(response => response.json())
+            .then(json => {quantityObj = new Quantity(json.id, json.quantity)})
+    }
 
-   const newDiv = document.createElement('div')
-   newDiv.className = 'ingredient-menus'
-   menuDiv.parentElement.appendChild(newDiv)
-    
-   buildMenus()
+    if (!ingredientObj) {
+        fetch(`${domain}/ingredients`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: addedIngredient})
+        })
+            .then(response => response.json())
+            .then(json => {ingredientObj = new Ingredient(json.id, json.name)})
+    }
+
+//    Array.from(menuDiv.children).forEach(child => {menuDiv.removeChild(child)})
+//
+//    const p = document.createElement('p')
+//    p.innerHTML = `<span class="ingredient">${addedIngredient}</span> <span class="quantity">${addedQuantity}</span> <span class="measure">${addedMeasure}`
+//    menuDiv.appendChild(p)
+//
+//    const removeBtn = document.createElement('button')
+//    removeBtn.textContent = 'Remove'
+//    removeBtn.addEventListener('click', event => {
+//        event.preventDefault()
+//        removeIngredient(event.currentTarget.parentElement) 
+//    })
+//    menuDiv.appendChild(removeBtn)
+//
+//    const newDiv = document.createElement('div')
+//    newDiv.className = 'ingredient-menus'
+//    menuDiv.parentElement.appendChild(newDiv)
+//
+//    buildMenus()
 }
 
 function removeIngredient(ingDiv) {
-       ingDiv.parentElement.removeChild(ingDiv)
+    ingDiv.parentElement.removeChild(ingDiv)
 }

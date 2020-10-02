@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2020_09_20_212025) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name", null: false
-    t.boolean "divisible", default: true, null: false
     t.integer "preferred_measure_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_09_20_212025) do
 
   create_table "measures", force: :cascade do |t|
     t.string "measure", null: false
+    t.boolean "divisible", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
