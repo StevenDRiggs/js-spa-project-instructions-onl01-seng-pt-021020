@@ -94,6 +94,10 @@ const domain = 'http://localhost:3000'
 document.addEventListener('DOMContentLoaded', loadIngredients)
 
 function loadIngredients() {
+    Measure._all = []
+    Quantity._all = []
+    Ingredient._all = []
+
     fetch(`${domain}/measures`)
         .then(response => response.json())
         .then(json => {Array.from(json).forEach(measure => {new Measure(measure.id, measure.measure, measure.divisible)})})
@@ -310,57 +314,154 @@ function setDivisible(menuDiv) {
     }
 }
 
-//TODO: change to reflect OOJS & interact with db
 function addIngredient(menuDiv) {
-    const ingredient = menuDiv.querySelector('input#ingredient-text')
-    const quantity = menuDiv.querySelector('input#quantity-text')
-    const measure = menuDiv.querySelector('input#measure-text')
-    const addBtn = menuDiv.querySelector('button')
+    const divisible = menuDiv.querySelector('input#divisible').checked
 
-    const addedIngredient = ingredient.value
-    const addedQuantity = quantity.value
-    const addedMeasure = measure.value
-
-    let ingredientObj = Ingredient.findBy('name', addedIngredient) 
-    let quantityObj = Quantity.findBy('quantity', addedQuantity) 
-    let measureObj = Measure.findBy('measure', addedMeasure) 
-
-    if (!measureObj) {
-        fetch(`${domain}/measures`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({measure: addedMeasure})
-        })
-            .then(response => response.json())
-            .then(json => {measureObj = new Measure(json.id, json.measure)})
-    }
-
+    const quantityText = menuDiv.querySelector('input#quantity-text').value
+    let quantityObj = Quantity.findBy('quantity', quantityText) 
     if (!quantityObj) {
         fetch(`${domain}/quantities`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({quantity: addedQuantity})
+            body: JSON.stringify({quantity: quantityText})
         })
             .then(response => response.json())
             .then(json => {quantityObj = new Quantity(json.id, json.quantity)})
     }
 
+    const measureText = menuDiv.querySelector('input#measure-text').value
+    let measureObj = Measure.findBy('measure', measureText)
+    if (!measureObj) {
+        fetch(`${domain}/measures`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                measure: measureText,
+                divisible: divisible
+            })
+        })
+            .then(response => response.json())
+            .then(json => {measureObj = new Measure(json.id, json.measure, json.divisible)})
+    } else {
+        if (measureObj.divisible !== divisible) {
+            fetch(`${domain}/measures/${measureObj.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({measure: measureObj.measure, divisible: divisible})
+            })
+                .then(response => response.json())
+                .then(json => {measureObj.divisible = json.divisible})
+        }
+    }
+
+    const ingredientText = menuDiv.querySelector('input#ingredient-text').value
+    let ingredientObj = Ingredient.findBy('name', ingredientText)
     if (!ingredientObj) {
         fetch(`${domain}/ingredients`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name: addedIngredient})
+            body: JSON.stringify({
+                name: ingredientText,
+                preferred_measure_id: measureObj.id
+            })
         })
             .then(response => response.json())
-            .then(json => {ingredientObj = new Ingredient(json.id, json.name)})
+            .then(json => {ingredientObj = new Ingredient(json.id, json.name, json.preferred_measure_id)})
+    } else {
+        if (ingredientObj.preferredMeasure !== measureObj) {
+            console.log('here')
+            fetch(`${domain}/ingredients/${ingredientObj.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({name: ingredientObj.name, preferred_measure_id: measureObj.id})
+            })
+                .then(response => json())
+                .then(json => {ingredientObj.preferredMeasure = Measure.findById(json.preferred_measure_id)})
+        }
     }
 
+    Array.from(menuDiv.children).forEach(child => {menuDiv.removeChild(child)})
+
+    const ingredientItem = document.createElement('p')
+
+    ingredientItem.innerHTML = `<span class="ingredient-name">${ingredientObj.name}</span> - <span class="ingredient-quantity">${quantityObj.quantity}</span> <span class="ingredient-measure">${measureObj.measure}</span>`
+
+    menuDiv.appendChild(ingredientItem)
+
+    const removeBtn = document.createElement('button')
+    removeBtn.textContent = 'Remove'
+    removeBtn.addEventListener('click', event => {
+        event.preventDefault()
+        removeIngredient(event.currentTarget.parentElement)
+    })
+
+    menuDiv.appendChild(removeBtn)
+
+    const newMenuDiv = document.createElement('div')
+    newMenuDiv.className = 'ingredient-menus'
+    menuDiv.parentElement.appendChild(newMenuDiv)
+
+    loadIngredients()
+
+//    const ingredient = menuDiv.querySelector('input#ingredient-text')
+//    const quantity = menuDiv.querySelector('input#quantity-text')
+//    const measure = menuDiv.querySelector('input#measure-text')
+//    const addBtn = menuDiv.querySelector('button')
+//
+//    const addedIngredient = ingredient.value
+//    const addedQuantity = quantity.value
+//    const addedMeasure = measure.value
+//
+//    let ingredientObj = Ingredient.findBy('name', addedIngredient) 
+//    let quantityObj = Quantity.findBy('quantity', addedQuantity) 
+//    let measureObj = Measure.findBy('measure', addedMeasure) 
+//
+//    if (!measureObj) {
+//        fetch(`${domain}/measures`, {
+//            method: 'POST',
+//            headers: {
+//                'Content-Type': 'application/json'
+//            },
+//            body: JSON.stringify({measure: addedMeasure})
+//        })
+//            .then(response => response.json())
+//            .then(json => {measureObj = new Measure(json.id, json.measure)})
+//    }
+//
+//    if (!quantityObj) {
+//        fetch(`${domain}/quantities`, {
+//            method: 'POST',
+//            headers: {
+//                'Content-Type': 'application/json'
+//            },
+//            body: JSON.stringify({quantity: addedQuantity})
+//        })
+//            .then(response => response.json())
+//            .then(json => {quantityObj = new Quantity(json.id, json.quantity)})
+//    }
+//
+//    if (!ingredientObj) {
+//        fetch(`${domain}/ingredients`, {
+//            method: 'POST',
+//            headers: {
+//                'Content-Type': 'application/json'
+//            },
+//            body: JSON.stringify({name: addedIngredient})
+//        })
+//            .then(response => response.json())
+//            .then(json => {ingredientObj = new Ingredient(json.id, json.name)})
+//    }
+//
 //    Array.from(menuDiv.children).forEach(child => {menuDiv.removeChild(child)})
 //
 //    const p = document.createElement('p')
