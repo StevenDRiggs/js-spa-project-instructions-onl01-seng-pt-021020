@@ -5,11 +5,19 @@ class MeasuresController < ApplicationController
 
   def create
     measure = Measure.create(measure_params)
+
+    render json: measure
+  end
+
+  def update
+    measure = Measure.find(params[:id])
+    measure.update(measure_params)
+
     render json: measure
   end
 
   private
     def measure_params
-      params.require([:measure, :divisible])
+      params.require(:measure).permit(:measure, :divisible)
     end
 end

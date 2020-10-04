@@ -11,6 +11,6 @@ class QuantitiesController < ApplicationController
 
   private
     def quantity_params
-      params.require(:quantity)
+      params.require(:quantity).permit(:quantity)
     end
 end

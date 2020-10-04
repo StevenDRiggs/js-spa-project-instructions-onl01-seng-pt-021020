@@ -1,5 +1,5 @@
 class Quantity < ApplicationRecord
-  def initialize(quantity)
-    super(quantity: quantity.strip)
+  def quantity=(quantity)
+    super(quantity.strip)
   end
 end

@@ -446,9 +446,9 @@ Ingredient.create(
   preferred_measure: lb
 )
 
-Quantity.create('1/8')
-Quantity.create('1/4')
-Quantity.create('1/2')
-Quantity.create('3/4')
-Quantity.create('1/3')
-Quantity.create('2/3')
+Quantity.create(quantity: '1/8')
+Quantity.create(quantity: '1/4')
+Quantity.create(quantity: '1/2')
+Quantity.create(quantity: '3/4')
+Quantity.create(quantity: '1/3')
+Quantity.create(quantity: '2/3')
