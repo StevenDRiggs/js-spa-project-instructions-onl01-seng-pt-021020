@@ -6,7 +6,6 @@ class IngredientsController < ApplicationController
   def update
     ingredient = Ingredient.find(params[:id])
 
-    puts "params: #{params}"
     ingredient.update(ingredient_params)
 
     render json: ingredient
