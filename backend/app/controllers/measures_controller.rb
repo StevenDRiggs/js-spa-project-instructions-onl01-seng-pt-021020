@@ -3,18 +3,13 @@ class MeasuresController < ApplicationController
     render json: Measure.all
   end
 
-  def show
-    ingredient = params[:id].split('-').join(' ')
-    measure = Ingredient.find_by(name: ingredient)
-    if measure
-      render json: {measure: measure.preferred_measure}
-    else
-      render json: {measure: ''}
-    end
-  end
-
   def create
-    measure = Measure.create(params[:measure])
+    measure = Measure.create(measure_params)
     render json: measure
   end
+
+  private
+    def measure_params
+      params.require([:measure, :divisible])
+    end
 end

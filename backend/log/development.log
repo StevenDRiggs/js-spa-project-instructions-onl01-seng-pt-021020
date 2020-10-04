@@ -12234,3 +12234,183 @@ Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
 ArgumentError (When assigning attributes, you must pass a hash as an argument.):
   
 app/controllers/measures_controller.rb:17:in `create'
+Started GET "/measures" for ::1 at 2020-10-02 23:02:00 -0600
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /data/data/com.termux/files/home/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (4.7ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 83ms (Views: 47.5ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-02 23:02:00 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (6.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 124ms (Views: 101.9ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-02 23:02:01 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (2.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 44ms (Views: 29.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-02 23:02:06 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.8ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-02 23:02:06 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (1.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 86ms (Views: 83.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-02 23:02:06 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.7ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-02 23:02:14 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.9ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-02 23:02:14 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (1.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 54ms (Views: 51.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-02 23:02:14 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.7ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/measures" for ::1 at 2020-10-02 23:02:33 -0600
+Processing by MeasuresController#create as */*
+  Parameters: {"measure"=>"New", "divisible"=>true}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/measures_controller.rb:17:in `create'
+Started GET "/measures" for ::1 at 2020-10-02 23:07:52 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (1.0ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 48ms (Views: 36.8ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-02 23:07:53 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (2.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 70ms (Views: 59.6ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-02 23:07:53 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.9ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 31ms (Views: 23.3ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/measures" for ::1 at 2020-10-02 23:08:08 -0600
+Started POST "/quantities" for ::1 at 2020-10-02 23:08:08 -0600
+Processing by MeasuresController#create as */*
+  Parameters: {"measure"=>"New", "divisible"=>true}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+AbstractController::ActionNotFound (The action 'create' could not be found for QuantitiesController):
+  
+  
+app/controllers/measures_controller.rb:7:in `create'
+actionpack (5.2.4.4) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.4.4) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.4.4) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (5.2.4.4) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.4.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/measures" for ::1 at 2020-10-02 23:11:33 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (1.0ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 50ms (Views: 38.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-02 23:11:34 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (2.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 74ms (Views: 63.3ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-02 23:11:34 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.9ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 34ms (Views: 26.2ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/measures" for ::1 at 2020-10-02 23:11:46 -0600
+Processing by MeasuresController#create as */*
+  Parameters: {"measure"=>"New", "divisible"=>true}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/measures_controller.rb:7:in `create'
