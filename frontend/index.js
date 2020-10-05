@@ -293,7 +293,7 @@ function addServings() {
         desiredServings.type = 'number'
         desiredServings.name = 'desired-servings'
         desiredServings.id = 'desired-servings'
-        desiredServings.placeholder = 'Want to make # servings'
+        desiredServings.placeholder = 'Desired # servings?'
 
         fieldset.appendChild(desiredServings)
     } else {
@@ -419,6 +419,7 @@ function morphDiv(menuDiv, quantityText, measureText, ingredientText) {
     p.innerHTML = `<span class="ingredient-display">${ingredientText}</span> - <span class="quantity-display">${quantityText}</span> <span class="measure-display">${measureText}</span>`
 
     const removeBtn = document.createElement('button')
+    removeBtn.classList.add('btn', 'remove-ing-btn')
     removeBtn.textContent = 'Remove'
     removeBtn.addEventListener('click', event => {
         event.preventDefault()
@@ -430,7 +431,7 @@ function morphDiv(menuDiv, quantityText, measureText, ingredientText) {
 
     const divContainer = menuDiv.parentElement
     const newDiv = document.createElement('div')
-    newDiv.className = 'ingredient-menus'
+    newDiv.classList.add('ingredient-menus')
 
     divContainer.appendChild(newDiv)
 }
@@ -439,6 +440,7 @@ function morphDiv(menuDiv, quantityText, measureText, ingredientText) {
 function configureCalculateButton() {
     const calcBtn = document.querySelector('button#calculate')
     calcBtn.addEventListener('click', event => {
+        event.stopImmediatePropagation()
         event.preventDefault()
         calculate()
     })
@@ -471,9 +473,44 @@ function calculate() {
         })
     })
     .then(response => response.json())
-    .then(json => {console.log(JSON.stringify(json))})
+    .then(json => {
+        const main = document.querySelector('main')
+        const form = document.querySelector('form')
+        
+        const card = document.createElement('div')
+        card.className = 'card'
+        card.classList.add('card', 'container')
+        const ul = document.createElement('ul')
+        card.appendChild(ul)
+
+        Array.from(json.new_recipe).forEach(ingredientItem => {
+            const recipeItem = document.createElement('li')
+            recipeItem.classList.add('calculated-display-item')
+            recipeItem.textContent = `${ingredientItem.ingredient} - ${ingredientItem.quantity} ${ingredientItem.measure}`
+            ul.appendChild(recipeItem)
+        })
+
+        const makes = document.createElement('p')
+        makes.className = 'card-makes'
+        makes.textContent = `Makes ${json.makes} servings`
+        card.appendChild(makes)
+
+        const removeBtn = document.createElement('button')
+        removeBtn.classList.add('removeX', 'btn-danger', 'text-center')
+        removeBtn.textContent = 'X'
+        removeBtn.addEventListener('click', event => {
+            event.preventDefault()
+            removeCard(event.currentTarget.parentElement)})
+        card.appendChild(removeBtn)
+
+        main.insertBefore(card, form)
+    })
 }
 
 function removeIngredient(ingDiv) {
     ingDiv.parentElement.removeChild(ingDiv)
+}
+
+function removeCard(card) {
+    card.parentElement.removeChild(card)
 }
