@@ -47,3 +47,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby, :ruby]
 
 # LoadError correction; version must be specified
 gem 'bigdecimal', '>= 2.0'
+
+# For fractional measures
+gem 'fraction'

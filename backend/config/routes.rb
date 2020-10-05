@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :ingredients
 
   put '/records_update', to: 'application#records_update'
+  post '/calculate', to: 'application#calculate'
 end

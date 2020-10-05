@@ -16,4 +16,48 @@ class ApplicationController < ActionController::API
 
     render json: 'SUCCESS'
   end
+
+  def calculate
+    recipe = params[:recipe].to_a
+    makes = params[:makes].to_f
+    desired = params[:desired].to_f
+    multiplier = desired / makes
+
+    scaling_calculation(recipe, makes, desired, multiplier)
+  end
+
+  def scaling_calculation(recipe, makes, desired, multiplier)
+    new_recipe = recipe.collect do |item|
+      quantity = item[:quantity]
+
+      if quantity.to_i.to_s == quantity
+        quantity_float = quantity.to_f
+        quantity_arr = (quantity_float * multiplier).to_whole_fraction(8)
+      else
+        index = quantity.index('/')
+        quantity_float = quantity[0..index].to_f / quantity[(index+1)..quantity.length].to_f
+        quantity_arr = (quantity_float * multiplier).to_whole_fraction(8)
+      end
+
+      if quantity_arr[2] == 1
+        quantity = "#{quantity_arr[0]}"
+      elsif item[:divisible] == false
+        multiplier = (quantity_float * multiplier).ceil / quantity_float
+
+        return scaling_calculation(recipe, makes, desired, multiplier)
+      elsif quantity_arr[0] >= 1
+        quantity = "#{quantity_arr[0]} #{quantity_arr[1]}/#{quantity_arr[2]}"
+      else
+        quantity = "#{quantity_arr[1]}/#{quantity_arr[2]}"
+      end
+
+      item[:quantity] = quantity
+      item
+    end
+
+    render json: {
+      new_recipe: new_recipe,
+      makes: (makes * multiplier).floor
+    }
+  end
 end

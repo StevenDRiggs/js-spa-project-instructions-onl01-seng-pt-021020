@@ -112,19 +112,20 @@ function loadIngredients() {
     Ingredient._all = []
 
     fetch(`${domain}/measures`)
+    .then(response => response.json())
+    .then(json => {Array.from(json).forEach(measure => {new Measure(measure.id, measure.measure, measure.divisible)})})
+    .then(() => {
+        fetch(`${domain}/ingredients`)
         .then(response => response.json())
-        .then(json => {Array.from(json).forEach(measure => {new Measure(measure.id, measure.measure, measure.divisible)})})
+        .then(json => {Array.from(json).forEach(ingredient => {new Ingredient(ingredient.id, ingredient.name, ingredient.preferred_measure_id)})}) // preferred_measure_id must be snake_case here for compatibility
         .then(() => {
-            fetch(`${domain}/ingredients`)
-                .then(response => response.json())
-                .then(json => {Array.from(json).forEach(ingredient => {new Ingredient(ingredient.id, ingredient.name, ingredient.preferred_measure_id)})}) // preferred_measure_id must be snake_case here for compatibility
-                .then(() => {
-                    fetch(`${domain}/quantities`)
-                        .then(response => response.json())
-                        .then(json => {Array.from(json).forEach(quantity => {new Quantity(quantity.id, quantity.quantity)})})
-                        .then(buildMenus)
-                })
+            fetch(`${domain}/quantities`)
+            .then(response => response.json())
+            .then(json => {Array.from(json).forEach(quantity => {new Quantity(quantity.id, quantity.quantity)})})
+            .then(buildMenus)
+            .then(configureCalculateButton)
         })
+    })
 }
 
 function buildMenus() {
@@ -242,8 +243,31 @@ function buildMeasures(ingredientMenus) {
     divisibleCheckBox.id = 'divisible'
     divisibleCheckBox.name = 'divisible'
     divisibleCheckBox.type = 'checkbox'
+    divisibleCheckBox.addEventListener('change', event => {divisibleChange(event.currentTarget.parentElement)})
 
     ingredientMenus.appendChild(divisibleCheckBox)
+}
+
+//TODO: enable this to activate when other fields change it
+function divisibleChange(menuDiv) {
+    const divisible = menuDiv.querySelector('input#divisible').checked
+    const quantities = menuDiv.querySelector('datalist#quantities')
+
+    if (divisible) {
+        Array.from(quantities.children).forEach(child => {quantities.removeChild(child)})
+        Quantity.all.forEach(quantity => {
+            const quantityItem = document.createElement('option')
+            quantityItem.textContent = quantity.quantity
+
+            quantities.appendChild(quantityItem)
+        })
+    } else {
+        Array.from(quantities.children).forEach(child => {
+            if (parseInt(child.textContent).toString() !== child.textContent) {
+                quantities.removeChild(child)
+            }
+        })
+    }
 }
 
 function addServings() {
@@ -290,6 +314,8 @@ function setMeasure(menuDiv) {
 
             const divisible = menuDiv.querySelector('input#divisible')
             divisible.checked = preferredMeasure.divisible
+
+            divisibleChange(menuDiv)
         }
     }
 }
@@ -407,6 +433,45 @@ function morphDiv(menuDiv, quantityText, measureText, ingredientText) {
     newDiv.className = 'ingredient-menus'
 
     divContainer.appendChild(newDiv)
+}
+
+//TODO: disable this until form is filled out
+function configureCalculateButton() {
+    const calcBtn = document.querySelector('button#calculate')
+    calcBtn.addEventListener('click', event => {
+        event.preventDefault()
+        calculate()
+    })
+}
+
+function calculate() {
+    const recipeItems = []
+    const recipe = Array.from(document.querySelectorAll('div.ingredient-menus')).slice(0, -1)
+    const makesServings = document.querySelector('input#original-servings').value
+    const desiredServings = document.querySelector('input#desired-servings').value
+
+    recipe.forEach(item => {
+        recipeItems.push({
+            ingredient: item.querySelector('span.ingredient-display').textContent,
+            quantity: item.querySelector('span.quantity-display').textContent,
+            measure: item.querySelector('span.measure-display').textContent,
+            divisible: Measure.findBy('measure', item.querySelector('span.measure-display').textContent).divisible
+        })
+    })
+
+    fetch(`${domain}/calculate`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            recipe: recipeItems,
+            makes: makesServings,
+            desired: desiredServings
+        })
+    })
+    .then(response => response.json())
+    .then(json => {console.log(JSON.stringify(json))})
 }
 
 function removeIngredient(ingDiv) {
