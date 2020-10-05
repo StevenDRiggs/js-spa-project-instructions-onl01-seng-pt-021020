@@ -34,8 +34,17 @@ class ApplicationController < ActionController::API
         quantity_float = quantity.to_f
         quantity_arr = (quantity_float * multiplier).to_whole_fraction(8)
       else
-        index = quantity.index('/')
-        quantity_float = quantity[0..index].to_f / quantity[(index+1)..quantity.length].to_f
+        quantity_split = quantity.split('/')
+        quantity_split = quantity_split[0].split(/\s+/).push(quantity_split[1])
+        quantity_split = quantity_split.map do |val|
+          val.to_f
+        end
+
+        if quantity_split.length == 2
+          quantity_float = quantity_split[0] / quantity_split[1]
+        elsif quantity_split.length == 3
+          quantity_float = (quantity_split[0] * quantity_split[2] + quantity_split[1]) / quantity_split[2]
+        end
         quantity_arr = (quantity_float * multiplier).to_whole_fraction(8)
       end
 

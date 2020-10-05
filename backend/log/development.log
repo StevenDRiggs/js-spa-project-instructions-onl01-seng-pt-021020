@@ -23954,3 +23954,937 @@ Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/measures" for ::1 at 2020-10-05 04:46:04 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/steven/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 19ms (Views: 14.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 04:46:04 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 04:46:04 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 04:47:18 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>false, "quantity"=>{"id"=>nil, "quantity"=>"4"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>396, "name"=>"Egg White (Unit)", "preferredMeasure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "preferredMeasureId"=>184}, "application"=>{"divisible"=>false, "quantity"=>{"id"=>nil, "quantity"=>"4"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>396, "name"=>"Egg White (Unit)", "preferredMeasure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "preferredMeasureId"=>184}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mQuantity Create (1.6ms)[0m  [1m[32mINSERT INTO "quantities" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", "4"], ["created_at", "2020-10-05 10:47:18.593891"], ["updated_at", "2020-10-05 10:47:18.593891"]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (24.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 396], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 55ms (Views: 0.1ms | ActiveRecord: 26.8ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 04:47:18 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 04:47:18 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 04:47:18 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 04:47:30 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>false, "quantity"=>{"id"=>35, "quantity"=>"4"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>398, "name"=>"Egg Yolk", "preferredMeasure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "preferredMeasureId"=>184}, "application"=>{"divisible"=>false, "quantity"=>{"id"=>35, "quantity"=>"4"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>398, "name"=>"Egg Yolk", "preferredMeasure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "preferredMeasureId"=>184}}}
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 398], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 04:47:30 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 04:47:30 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 04:47:30 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 04:48:34 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>nil, "quantity"=>"5"}, "measure"=>{"id"=>169, "measure"=>"tbsp", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Lemon Juice"}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>nil, "quantity"=>"5"}, "measure"=>{"id"=>169, "measure"=>"tbsp", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Lemon Juice"}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mQuantity Create (1.4ms)[0m  [1m[32mINSERT INTO "quantities" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", "5"], ["created_at", "2020-10-05 10:48:34.775955"], ["updated_at", "2020-10-05 10:48:34.775955"]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 169], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mIngredient Create (32.7ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "preferred_measure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lemon Juice"], ["preferred_measure_id", 169], ["created_at", "2020-10-05 10:48:34.793336"], ["updated_at", "2020-10-05 10:48:34.793336"]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 169], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 72ms (Views: 0.1ms | ActiveRecord: 42.0ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 04:48:34 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 04:48:34 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 10ms (Views: 10.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 04:48:34 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 04:48:58 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>186, "measure"=>"tsp", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Lemon Zest"}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>186, "measure"=>"tsp", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Lemon Zest"}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 186], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mIngredient Create (1.5ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "preferred_measure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lemon Zest"], ["preferred_measure_id", 186], ["created_at", "2020-10-05 10:48:58.693378"], ["updated_at", "2020-10-05 10:48:58.693378"]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 186], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 27ms (Views: 0.1ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 04:48:58 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 04:48:58 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 04:48:58 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 04:49:30 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>183, "measure"=>"oz", "divisible"=>true}, "ingredient"=>{"id"=>400, "name"=>"Butter", "preferredMeasure"=>{"id"=>189, "measure"=>"stick (8 oz)", "divisible"=>true}, "preferredMeasureId"=>183}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>183, "measure"=>"oz", "divisible"=>true}, "ingredient"=>{"id"=>400, "name"=>"Butter", "preferredMeasure"=>{"id"=>189, "measure"=>"stick (8 oz)", "divisible"=>true}, "preferredMeasureId"=>183}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 183], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 400], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 189], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mIngredient Update (1.4ms)[0m  [1m[33mUPDATE "ingredients" SET "preferred_measure_id" = ?, "updated_at" = ? WHERE "ingredients"."id" = ?[0m  [["preferred_measure_id", 183], ["updated_at", "2020-10-05 10:49:30.184121"], ["id", 400]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 04:49:30 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 04:49:30 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 04:49:30 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 04:49:54 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>nil, "quantity"=>"11"}, "measure"=>{"id"=>183, "measure"=>"oz", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Caster Sugar"}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>nil, "quantity"=>"11"}, "measure"=>{"id"=>183, "measure"=>"oz", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Caster Sugar"}}}
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mQuantity Create (1.6ms)[0m  [1m[32mINSERT INTO "quantities" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", "11"], ["created_at", "2020-10-05 10:49:54.571500"], ["updated_at", "2020-10-05 10:49:54.571500"]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 183], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mIngredient Create (1.5ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "preferred_measure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Caster Sugar"], ["preferred_measure_id", 183], ["created_at", "2020-10-05 10:49:54.590348"], ["updated_at", "2020-10-05 10:49:54.590348"]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 183], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 42ms (Views: 0.1ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 04:49:54 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 04:49:54 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 04:49:54 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 04:50:19 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>35, "quantity"=>"4"}, "measure"=>{"id"=>169, "measure"=>"tbsp", "divisible"=>true}, "ingredient"=>{"id"=>350, "name"=>"All Purpose Flour", "preferredMeasure"=>{"id"=>171, "measure"=>"dry cup", "divisible"=>true}, "preferredMeasureId"=>169}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>35, "quantity"=>"4"}, "measure"=>{"id"=>169, "measure"=>"tbsp", "divisible"=>true}, "ingredient"=>{"id"=>350, "name"=>"All Purpose Flour", "preferredMeasure"=>{"id"=>171, "measure"=>"dry cup", "divisible"=>true}, "preferredMeasureId"=>169}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 169], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 350], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.1ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 171], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mIngredient Update (1.3ms)[0m  [1m[33mUPDATE "ingredients" SET "preferred_measure_id" = ?, "updated_at" = ? WHERE "ingredients"."id" = ?[0m  [["preferred_measure_id", 169], ["updated_at", "2020-10-05 10:50:19.441075"], ["id", 350]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 04:50:19 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 04:50:19 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 04:50:19 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 04:50:48 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>29, "quantity"=>"1/2"}, "measure"=>{"id"=>186, "measure"=>"tsp", "divisible"=>true}, "ingredient"=>{"id"=>346, "name"=>"Salt", "preferredMeasure"=>{"id"=>167, "measure"=>"pinch", "divisible"=>false}, "preferredMeasureId"=>186}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>29, "quantity"=>"1/2"}, "measure"=>{"id"=>186, "measure"=>"tsp", "divisible"=>true}, "ingredient"=>{"id"=>346, "name"=>"Salt", "preferredMeasure"=>{"id"=>167, "measure"=>"pinch", "divisible"=>false}, "preferredMeasureId"=>186}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.1ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 186], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 346], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 167], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mIngredient Update (1.4ms)[0m  [1m[33mUPDATE "ingredients" SET "preferred_measure_id" = ?, "updated_at" = ? WHERE "ingredients"."id" = ?[0m  [["preferred_measure_id", 186], ["updated_at", "2020-10-05 10:50:48.095449"], ["id", 346]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 04:50:48 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 04:50:48 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 04:50:48 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 04:51:15 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>nil, "quantity"=>"12"}, "measure"=>{"id"=>170, "measure"=>"fl oz", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Semi Skimmed Milk"}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>nil, "quantity"=>"12"}, "measure"=>{"id"=>170, "measure"=>"fl oz", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Semi Skimmed Milk"}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mQuantity Create (1.6ms)[0m  [1m[32mINSERT INTO "quantities" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", "12"], ["created_at", "2020-10-05 10:51:15.068299"], ["updated_at", "2020-10-05 10:51:15.068299"]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 170], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mIngredient Create (21.7ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "preferred_measure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Semi Skimmed Milk"], ["preferred_measure_id", 170], ["created_at", "2020-10-05 10:51:15.086693"], ["updated_at", "2020-10-05 10:51:15.086693"]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 170], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 65ms (Views: 0.1ms | ActiveRecord: 31.5ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 04:51:15 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 04:51:15 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 04:51:15 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/calculate" for ::1 at 2020-10-05 04:58:38 -0600
+Processing by ApplicationController#calculate as */*
+Started POST "/calculate" for ::1 at 2020-10-05 04:58:38 -0600
+  Parameters: {"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79", "application"=>{"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79"}}
+Started POST "/calculate" for ::1 at 2020-10-05 04:58:38 -0600
+Processing by ApplicationController#calculate as */*
+Started POST "/calculate" for ::1 at 2020-10-05 04:58:38 -0600
+Started POST "/calculate" for ::1 at 2020-10-05 04:58:38 -0600
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+  Parameters: {"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79", "application"=>{"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79"}}
+Processing by ApplicationController#calculate as */*
+Processing by ApplicationController#calculate as */*
+Processing by ApplicationController#calculate as */*
+Started POST "/calculate" for ::1 at 2020-10-05 04:58:38 -0600
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+  Parameters: {"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79", "application"=>{"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79"}}
+  Parameters: {"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79", "application"=>{"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79"}}
+  Parameters: {"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79", "application"=>{"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79"}}
+Processing by ApplicationController#calculate as */*
+Started POST "/calculate" for ::1 at 2020-10-05 04:58:38 -0600
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+  Parameters: {"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79", "application"=>{"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79"}}
+Processing by ApplicationController#calculate as */*
+Started POST "/calculate" for ::1 at 2020-10-05 04:58:38 -0600
+Started POST "/calculate" for ::1 at 2020-10-05 04:58:38 -0600
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+  Parameters: {"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79", "application"=>{"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79"}}
+Processing by ApplicationController#calculate as */*
+Processing by ApplicationController#calculate as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+  Parameters: {"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79", "application"=>{"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79"}}
+  Parameters: {"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79", "application"=>{"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/calculate" for ::1 at 2020-10-05 04:58:38 -0600
+Processing by ApplicationController#calculate as */*
+  Parameters: {"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79", "application"=>{"recipe"=>[{"ingredient"=>"Egg White (Unit)", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Egg Yolk", "quantity"=>"4", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Lemon Juice", "quantity"=>"5", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Lemon Zest", "quantity"=>"1", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Butter", "quantity"=>"1", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"Caster Sugar", "quantity"=>"11", "measure"=>"oz", "divisible"=>true}, {"ingredient"=>"All Purpose Flour", "quantity"=>"4", "measure"=>"tbsp", "divisible"=>true}, {"ingredient"=>"Salt", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"Semi Skimmed Milk", "quantity"=>"12", "measure"=>"fl oz", "divisible"=>true}], "makes"=>"15", "desired"=>"79"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 05:00:01 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 05:00:01 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 05:00:01 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 05:01:18 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>172, "measure"=>"wet cup", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Soy Milk"}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>172, "measure"=>"wet cup", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Soy Milk"}}}
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 172], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mIngredient Create (1.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "preferred_measure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Soy Milk"], ["preferred_measure_id", 172], ["created_at", "2020-10-05 11:01:18.327454"], ["updated_at", "2020-10-05 11:01:18.327454"]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 172], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 05:01:18 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 05:01:18 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 9ms (Views: 8.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 05:01:18 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 05:01:38 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>29, "quantity"=>"1/2"}, "measure"=>{"id"=>172, "measure"=>"wet cup", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Rolled Oats"}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>29, "quantity"=>"1/2"}, "measure"=>{"id"=>172, "measure"=>"wet cup", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Rolled Oats"}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.1ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 172], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mIngredient Create (1.7ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "preferred_measure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Rolled Oats"], ["preferred_measure_id", 172], ["created_at", "2020-10-05 11:01:38.103997"], ["updated_at", "2020-10-05 11:01:38.103997"]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 172], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 27ms (Views: 0.1ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 05:01:38 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 05:01:38 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 05:01:38 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 05:01:47 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>false, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>nil, "name"=>"Banana"}, "application"=>{"divisible"=>false, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>nil, "name"=>"Banana"}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.5ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mIngredient Create (1.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "preferred_measure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Banana"], ["preferred_measure_id", 184], ["created_at", "2020-10-05 11:01:47.030370"], ["updated_at", "2020-10-05 11:01:47.030370"]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 27ms (Views: 0.1ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 05:01:47 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 05:01:47 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 05:01:47 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 05:02:04 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>false, "quantity"=>{"id"=>nil, "quantity"=>"14"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>nil, "name"=>"Frozen Strawberries"}, "application"=>{"divisible"=>false, "quantity"=>{"id"=>nil, "quantity"=>"14"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>nil, "name"=>"Frozen Strawberries"}}}
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mQuantity Create (1.5ms)[0m  [1m[32mINSERT INTO "quantities" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", "14"], ["created_at", "2020-10-05 11:02:04.593690"], ["updated_at", "2020-10-05 11:02:04.593690"]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (21.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mIngredient Create (1.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "preferred_measure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Frozen Strawberries"], ["preferred_measure_id", 184], ["created_at", "2020-10-05 11:02:04.627884"], ["updated_at", "2020-10-05 11:02:04.627884"]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 59ms (Views: 0.1ms | ActiveRecord: 28.3ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 05:02:04 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 05:02:04 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 12ms (Views: 11.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 05:02:04 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 05:02:20 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>29, "quantity"=>"1/2"}, "measure"=>{"id"=>186, "measure"=>"tsp", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Vanilla Extract"}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>29, "quantity"=>"1/2"}, "measure"=>{"id"=>186, "measure"=>"tsp", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"Vanilla Extract"}}}
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 186], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mIngredient Create (1.6ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "preferred_measure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Vanilla Extract"], ["preferred_measure_id", 186], ["created_at", "2020-10-05 11:02:20.910320"], ["updated_at", "2020-10-05 11:02:20.910320"]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 186], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 05:02:20 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 05:02:20 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 05:02:20 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 05:02:58 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>nil, "quantity"=>"3/2"}, "measure"=>{"id"=>186, "measure"=>"tsp", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"White Sugar"}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>nil, "quantity"=>"3/2"}, "measure"=>{"id"=>186, "measure"=>"tsp", "divisible"=>true}, "ingredient"=>{"id"=>nil, "name"=>"White Sugar"}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mQuantity Create (1.5ms)[0m  [1m[32mINSERT INTO "quantities" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", "3/2"], ["created_at", "2020-10-05 11:02:58.388034"], ["updated_at", "2020-10-05 11:02:58.388034"]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 186], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mIngredient Create (1.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "preferred_measure_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "White Sugar"], ["preferred_measure_id", 186], ["created_at", "2020-10-05 11:02:58.407183"], ["updated_at", "2020-10-05 11:02:58.407183"]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 186], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 47ms (Views: 0.1ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 05:02:58 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 12ms (Views: 11.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 05:02:58 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 05:02:58 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/calculate" for ::1 at 2020-10-05 05:03:25 -0600
+Started POST "/calculate" for ::1 at 2020-10-05 05:03:25 -0600
+Started POST "/calculate" for ::1 at 2020-10-05 05:03:25 -0600
+Processing by ApplicationController#calculate as */*
+Processing by ApplicationController#calculate as */*
+Started POST "/calculate" for ::1 at 2020-10-05 05:03:25 -0600
+  Parameters: {"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4", "application"=>{"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4"}}
+Started POST "/calculate" for ::1 at 2020-10-05 05:03:25 -0600
+Processing by ApplicationController#calculate as */*
+Processing by ApplicationController#calculate as */*
+Processing by ApplicationController#calculate as */*
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+  Parameters: {"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4", "application"=>{"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4"}}
+  Parameters: {"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4", "application"=>{"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4"}}
+  Parameters: {"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4", "application"=>{"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4"}}
+  Parameters: {"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4", "application"=>{"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4"}}
+Started POST "/calculate" for ::1 at 2020-10-05 05:03:25 -0600
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Processing by ApplicationController#calculate as */*
+  Parameters: {"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4", "application"=>{"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/calculate" for ::1 at 2020-10-05 05:03:25 -0600
+Processing by ApplicationController#calculate as */*
+  Parameters: {"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4", "application"=>{"recipe"=>[{"ingredient"=>"Soy Milk", "quantity"=>"1", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Rolled Oats", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Banana", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Frozen Strawberries", "quantity"=>"14", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Vanilla Extract", "quantity"=>"1/2", "measure"=>"tsp", "divisible"=>true}, {"ingredient"=>"White Sugar", "quantity"=>"3/2", "measure"=>"tsp", "divisible"=>true}], "makes"=>"2", "desired"=>"4"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 05:04:03 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.5ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 05:04:03 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 11ms (Views: 10.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 05:04:03 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 05:16:46 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 05:16:46 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 05:16:46 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-05 05:17:04 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>nil, "quantity"=>"1 1/2"}, "measure"=>{"id"=>171, "measure"=>"dry cup", "divisible"=>true}, "ingredient"=>{"id"=>350, "name"=>"All Purpose Flour", "preferredMeasure"=>{"id"=>169, "measure"=>"tbsp", "divisible"=>true}, "preferredMeasureId"=>171}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>nil, "quantity"=>"1 1/2"}, "measure"=>{"id"=>171, "measure"=>"dry cup", "divisible"=>true}, "ingredient"=>{"id"=>350, "name"=>"All Purpose Flour", "preferredMeasure"=>{"id"=>169, "measure"=>"tbsp", "divisible"=>true}, "preferredMeasureId"=>171}}}
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mQuantity Create (1.5ms)[0m  [1m[32mINSERT INTO "quantities" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", "1 1/2"], ["created_at", "2020-10-05 11:17:04.780605"], ["updated_at", "2020-10-05 11:17:04.780605"]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 171], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 350], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 169], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mIngredient Update (1.3ms)[0m  [1m[33mUPDATE "ingredients" SET "preferred_measure_id" = ?, "updated_at" = ? WHERE "ingredients"."id" = ?[0m  [["preferred_measure_id", 171], ["updated_at", "2020-10-05 11:17:04.802845"], ["id", 350]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 40ms (Views: 0.1ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-05 05:17:04 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-05 05:17:04 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-05 05:17:04 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/calculate" for ::1 at 2020-10-05 05:17:12 -0600
+Started POST "/calculate" for ::1 at 2020-10-05 05:17:12 -0600
+Processing by ApplicationController#calculate as */*
+  Parameters: {"recipe"=>[{"ingredient"=>"All Purpose Flour", "quantity"=>"1 1/2", "measure"=>"dry cup", "divisible"=>true}], "makes"=>"1", "desired"=>"2", "application"=>{"recipe"=>[{"ingredient"=>"All Purpose Flour", "quantity"=>"1 1/2", "measure"=>"dry cup", "divisible"=>true}], "makes"=>"1", "desired"=>"2"}}
+Processing by ApplicationController#calculate as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+  Parameters: {"recipe"=>[{"ingredient"=>"All Purpose Flour", "quantity"=>"1 1/2", "measure"=>"dry cup", "divisible"=>true}], "makes"=>"1", "desired"=>"2", "application"=>{"recipe"=>[{"ingredient"=>"All Purpose Flour", "quantity"=>"1 1/2", "measure"=>"dry cup", "divisible"=>true}], "makes"=>"1", "desired"=>"2"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
