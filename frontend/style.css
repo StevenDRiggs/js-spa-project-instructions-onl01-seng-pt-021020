@@ -1,3 +1,11 @@
+body {
+  background-color: rgb(255, 252, 248);
+}
+
+h2 {
+  font-family: fantasy;
+}
+
 .remove-ing-btn {
   color: royalblue;
 }
@@ -17,4 +25,12 @@
 
 .calculated-display-item {
   list-style-type: hiragana;
+}
+
+.card {
+  background-color: blanchedalmond;
+}
+
+.servings {
+  margin: 15px auto;
 }

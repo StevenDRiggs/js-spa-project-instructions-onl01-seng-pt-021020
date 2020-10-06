@@ -274,6 +274,10 @@ function addServings() {
     let originalServings = document.querySelector('input#original-servings')
     let desiredServings = document.querySelector('input#desired-servings')
     const fieldset = document.querySelector('fieldset')
+    const servingsDiv = document.createElement('div')
+    servingsDiv.classList.add('servings')
+
+    fieldset.appendChild(servingsDiv)
 
     if (!originalServings) {
         originalServings = document.createElement('input')
@@ -282,10 +286,10 @@ function addServings() {
         originalServings.id = 'original-servings'
         originalServings.placeholder = 'Makes # servings?'
 
-        fieldset.appendChild(originalServings)
+        servingsDiv.appendChild(originalServings)
     } else {
-        fieldset.removeChild(originalServings)
-        fieldset.appendChild(originalServings)
+        servingsDiv.removeChild(originalServings)
+        servingsDiv.appendChild(originalServings)
     }
 
     if (!desiredServings) {
@@ -295,10 +299,10 @@ function addServings() {
         desiredServings.id = 'desired-servings'
         desiredServings.placeholder = 'Desired # servings?'
 
-        fieldset.appendChild(desiredServings)
+        servingsDiv.appendChild(desiredServings)
     } else {
-        fieldset.removeChild(desiredServings)
-        fieldset.appendChild(desiredServings)
+        servingsDiv.removeChild(desiredServings)
+        servingsDiv.appendChild(desiredServings)
     }
 }
 
