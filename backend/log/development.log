@@ -27934,3 +27934,485 @@ Processing by QuantitiesController#index as */*
 Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/measures" for ::1 at 2020-10-06 00:25:21 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/steven/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:25:21 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:25:21 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-06 00:30:01 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>42, "quantity"=>"2"}, "measure"=>{"id"=>181, "measure"=>"lb", "divisible"=>true}, "ingredient"=>{"id"=>350, "name"=>"All Purpose Flour", "preferredMeasure"=>{"id"=>171, "measure"=>"dry cup", "divisible"=>true}, "preferredMeasureId"=>181}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>42, "quantity"=>"2"}, "measure"=>{"id"=>181, "measure"=>"lb", "divisible"=>true}, "ingredient"=>{"id"=>350, "name"=>"All Purpose Flour", "preferredMeasure"=>{"id"=>171, "measure"=>"dry cup", "divisible"=>true}, "preferredMeasureId"=>181}}}
+  [1m[36mQuantity Load (0.5ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 181], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 350], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 171], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mIngredient Update (1.4ms)[0m  [1m[33mUPDATE "ingredients" SET "preferred_measure_id" = ?, "updated_at" = ? WHERE "ingredients"."id" = ?[0m  [["preferred_measure_id", 181], ["updated_at", "2020-10-06 06:30:01.305933"], ["id", 350]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 43ms (Views: 0.1ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:30:01 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:30:01 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:30:01 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:33:45 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:33:45 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:33:45 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:33:59 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/steven/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 27ms (Views: 22.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:34:00 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:34:00 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:36:27 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:36:27 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:36:27 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-06 00:36:32 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>27, "quantity"=>"1/8"}, "measure"=>{"id"=>181, "measure"=>"lb", "divisible"=>true}, "ingredient"=>{"id"=>350, "name"=>"All Purpose Flour", "preferredMeasure"=>{"id"=>181, "measure"=>"lb", "divisible"=>true}, "preferredMeasureId"=>181}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>27, "quantity"=>"1/8"}, "measure"=>{"id"=>181, "measure"=>"lb", "divisible"=>true}, "ingredient"=>{"id"=>350, "name"=>"All Purpose Flour", "preferredMeasure"=>{"id"=>181, "measure"=>"lb", "divisible"=>true}, "preferredMeasureId"=>181}}}
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 181], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 350], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 181], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:36:32 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:36:32 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:36:32 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:36:36 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:36:36 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:36:36 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-06 00:38:06 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>31, "quantity"=>"1/3"}, "measure"=>{"id"=>171, "measure"=>"dry cup", "divisible"=>true}, "ingredient"=>{"id"=>350, "name"=>"All Purpose Flour", "preferredMeasure"=>{"id"=>181, "measure"=>"lb", "divisible"=>true}, "preferredMeasureId"=>171}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>31, "quantity"=>"1/3"}, "measure"=>{"id"=>171, "measure"=>"dry cup", "divisible"=>true}, "ingredient"=>{"id"=>350, "name"=>"All Purpose Flour", "preferredMeasure"=>{"id"=>181, "measure"=>"lb", "divisible"=>true}, "preferredMeasureId"=>171}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 171], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 350], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mMeasure Load (0.5ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 181], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[36mIngredient Update (1.6ms)[0m  [1m[33mUPDATE "ingredients" SET "preferred_measure_id" = ?, "updated_at" = ? WHERE "ingredients"."id" = ?[0m  [["preferred_measure_id", 171], ["updated_at", "2020-10-06 06:38:06.751142"], ["id", 350]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:38:06 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:38:06 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:38:06 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-06 00:38:19 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>false, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>395, "name"=>"Egg", "preferredMeasure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "preferredMeasureId"=>184}, "application"=>{"divisible"=>false, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>395, "name"=>"Egg", "preferredMeasure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "preferredMeasureId"=>184}}}
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 395], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:38:19 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:38:19 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:38:19 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-06 00:38:30 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>29, "quantity"=>"1/2"}, "measure"=>{"id"=>183, "measure"=>"oz", "divisible"=>true}, "ingredient"=>{"id"=>406, "name"=>"Cheese", "preferredMeasure"=>{"id"=>183, "measure"=>"oz", "divisible"=>true}, "preferredMeasureId"=>183}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>29, "quantity"=>"1/2"}, "measure"=>{"id"=>183, "measure"=>"oz", "divisible"=>true}, "ingredient"=>{"id"=>406, "name"=>"Cheese", "preferredMeasure"=>{"id"=>183, "measure"=>"oz", "divisible"=>true}, "preferredMeasureId"=>183}}}
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 183], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 406], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 183], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:38:30 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.5ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:38:30 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:38:30 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/calculate" for ::1 at 2020-10-06 00:38:47 -0600
+Processing by ApplicationController#calculate as */*
+  Parameters: {"recipe"=>[{"ingredient"=>"All Purpose Flour", "quantity"=>"1/3", "measure"=>"dry cup", "divisible"=>true}, {"ingredient"=>"Egg", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Cheese", "quantity"=>"1/2", "measure"=>"oz", "divisible"=>true}], "makes"=>"1", "desired"=>"15", "application"=>{"recipe"=>[{"ingredient"=>"All Purpose Flour", "quantity"=>"1/3", "measure"=>"dry cup", "divisible"=>true}, {"ingredient"=>"Egg", "quantity"=>"1", "measure"=>"unit", "divisible"=>false}, {"ingredient"=>"Cheese", "quantity"=>"1/2", "measure"=>"oz", "divisible"=>true}], "makes"=>"1", "desired"=>"15"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-06 00:39:15 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>29, "quantity"=>"1/2"}, "measure"=>{"id"=>172, "measure"=>"wet cup", "divisible"=>true}, "ingredient"=>{"id"=>355, "name"=>"Beef Broth", "preferredMeasure"=>{"id"=>172, "measure"=>"wet cup", "divisible"=>true}, "preferredMeasureId"=>172}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>29, "quantity"=>"1/2"}, "measure"=>{"id"=>172, "measure"=>"wet cup", "divisible"=>true}, "ingredient"=>{"id"=>355, "name"=>"Beef Broth", "preferredMeasure"=>{"id"=>172, "measure"=>"wet cup", "divisible"=>true}, "preferredMeasureId"=>172}}}
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 172], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 355], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 172], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:39:15 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.6ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:39:15 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 12ms (Views: 11.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:39:15 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-06 00:39:22 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>175, "measure"=>"can (14.5 oz)", "divisible"=>true}, "ingredient"=>{"id"=>356, "name"=>"Canned Tomatoes", "preferredMeasure"=>{"id"=>175, "measure"=>"can (14.5 oz)", "divisible"=>true}, "preferredMeasureId"=>175}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>34, "quantity"=>"1"}, "measure"=>{"id"=>175, "measure"=>"can (14.5 oz)", "divisible"=>true}, "ingredient"=>{"id"=>356, "name"=>"Canned Tomatoes", "preferredMeasure"=>{"id"=>175, "measure"=>"can (14.5 oz)", "divisible"=>true}, "preferredMeasureId"=>175}}}
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 175], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 356], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 175], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:39:22 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (1.5ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:39:22 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:39:22 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-06 00:39:34 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>true, "quantity"=>{"id"=>42, "quantity"=>"2"}, "measure"=>{"id"=>177, "measure"=>"can (15.5 oz)", "divisible"=>true}, "ingredient"=>{"id"=>363, "name"=>"Canned Red Kidney Beans", "preferredMeasure"=>{"id"=>177, "measure"=>"can (15.5 oz)", "divisible"=>true}, "preferredMeasureId"=>177}, "application"=>{"divisible"=>true, "quantity"=>{"id"=>42, "quantity"=>"2"}, "measure"=>{"id"=>177, "measure"=>"can (15.5 oz)", "divisible"=>true}, "ingredient"=>{"id"=>363, "name"=>"Canned Red Kidney Beans", "preferredMeasure"=>{"id"=>177, "measure"=>"can (15.5 oz)", "divisible"=>true}, "preferredMeasureId"=>177}}}
+  [1m[36mQuantity Load (0.3ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 177], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 363], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 177], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:39:34 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.4ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:39:34 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:39:34 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.4ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/calculate" for ::1 at 2020-10-06 00:39:46 -0600
+Processing by ApplicationController#calculate as */*
+  Parameters: {"recipe"=>[{"ingredient"=>"Beef Broth", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Canned Tomatoes", "quantity"=>"1", "measure"=>"can (14.5 oz)", "divisible"=>true}, {"ingredient"=>"Canned Red Kidney Beans", "quantity"=>"2", "measure"=>"can (15.5 oz)", "divisible"=>true}], "makes"=>"10", "desired"=>"12", "application"=>{"recipe"=>[{"ingredient"=>"Beef Broth", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Canned Tomatoes", "quantity"=>"1", "measure"=>"can (14.5 oz)", "divisible"=>true}, {"ingredient"=>"Canned Red Kidney Beans", "quantity"=>"2", "measure"=>"can (15.5 oz)", "divisible"=>true}], "makes"=>"10", "desired"=>"12"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/records_update" for ::1 at 2020-10-06 00:40:13 -0600
+Processing by ApplicationController#records_update as */*
+  Parameters: {"divisible"=>false, "quantity"=>{"id"=>42, "quantity"=>"2"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>381, "name"=>"Bay Leaf", "preferredMeasure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "preferredMeasureId"=>184}, "application"=>{"divisible"=>false, "quantity"=>{"id"=>42, "quantity"=>"2"}, "measure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "ingredient"=>{"id"=>381, "name"=>"Bay Leaf", "preferredMeasure"=>{"id"=>184, "measure"=>"unit", "divisible"=>false}, "preferredMeasureId"=>184}}}
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT  "quantities".* FROM "quantities" WHERE "quantities"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mMeasure Load (0.2ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 381], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mCACHE Measure Load (0.0ms)[0m  [1m[34mSELECT  "measures".* FROM "measures" WHERE "measures"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/models/ingredient.rb:11
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/measures" for ::1 at 2020-10-06 00:40:13 -0600
+Processing by MeasuresController#index as */*
+  [1m[36mMeasure Load (0.3ms)[0m  [1m[34mSELECT "measures".* FROM "measures"[0m
+  ↳ app/controllers/measures_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ingredients" for ::1 at 2020-10-06 00:40:13 -0600
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/quantities" for ::1 at 2020-10-06 00:40:13 -0600
+Processing by QuantitiesController#index as */*
+  [1m[36mQuantity Load (0.2ms)[0m  [1m[34mSELECT "quantities".* FROM "quantities"[0m
+  ↳ app/controllers/quantities_controller.rb:3
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/calculate" for ::1 at 2020-10-06 00:40:16 -0600
+Processing by ApplicationController#calculate as */*
+  Parameters: {"recipe"=>[{"ingredient"=>"Beef Broth", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Canned Tomatoes", "quantity"=>"1", "measure"=>"can (14.5 oz)", "divisible"=>true}, {"ingredient"=>"Canned Red Kidney Beans", "quantity"=>"2", "measure"=>"can (15.5 oz)", "divisible"=>true}, {"ingredient"=>"Bay Leaf", "quantity"=>"2", "measure"=>"unit", "divisible"=>false}], "makes"=>"10", "desired"=>"12", "application"=>{"recipe"=>[{"ingredient"=>"Beef Broth", "quantity"=>"1/2", "measure"=>"wet cup", "divisible"=>true}, {"ingredient"=>"Canned Tomatoes", "quantity"=>"1", "measure"=>"can (14.5 oz)", "divisible"=>true}, {"ingredient"=>"Canned Red Kidney Beans", "quantity"=>"2", "measure"=>"can (15.5 oz)", "divisible"=>true}, {"ingredient"=>"Bay Leaf", "quantity"=>"2", "measure"=>"unit", "divisible"=>false}], "makes"=>"10", "desired"=>"12"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+

@@ -274,12 +274,14 @@ function addServings() {
     let originalServings = document.querySelector('input#original-servings')
     let desiredServings = document.querySelector('input#desired-servings')
     const fieldset = document.querySelector('fieldset')
-    const servingsDiv = document.createElement('div')
-    servingsDiv.classList.add('servings')
+    let servingsDiv = document.querySelector('div.servings')
 
-    fieldset.appendChild(servingsDiv)
+    if (!servingsDiv) {
+        servingsDiv = document.createElement('div')
+        servingsDiv.classList.add('servings')
 
-    if (!originalServings) {
+        fieldset.appendChild(servingsDiv)
+        
         originalServings = document.createElement('input')
         originalServings.type = 'number'
         originalServings.name = 'original-servings'
@@ -287,12 +289,7 @@ function addServings() {
         originalServings.placeholder = 'Makes # servings?'
 
         servingsDiv.appendChild(originalServings)
-    } else {
-        servingsDiv.removeChild(originalServings)
-        servingsDiv.appendChild(originalServings)
-    }
 
-    if (!desiredServings) {
         desiredServings = document.createElement('input')
         desiredServings.type = 'number'
         desiredServings.name = 'desired-servings'
@@ -301,8 +298,8 @@ function addServings() {
 
         servingsDiv.appendChild(desiredServings)
     } else {
-        servingsDiv.removeChild(desiredServings)
-        servingsDiv.appendChild(desiredServings)
+        fieldset.removeChild(servingsDiv)
+        fieldset.appendChild(servingsDiv)
     }
 }
 
