@@ -74,9 +74,9 @@ You are encouraged to follow development best practices while you are building y
 
 #### Git
 
-- [ ] Aim for a large number of small commits - commit frequently!
+- [x] Aim for a large number of small commits - commit frequently!
 - [x] Add meaningful messages to your commits. When you look back at your commits with `git log`, the messages should describe each change.
-- [ ] Don't include changes in a commit that aren't related to the commit message
+- [x] Don't include changes in a commit that aren't related to the commit message
 
 ### Suggested Project Structure
 
