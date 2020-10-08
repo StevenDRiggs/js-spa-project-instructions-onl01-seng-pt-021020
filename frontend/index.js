@@ -111,13 +111,16 @@ function loadIngredients() {
     Quantity._all = []
     Ingredient._all = []
 
+    const measuresIndex = document.querySelector('button#measures-index')
+    measuresIndex.addEventListener('click', mIndex)
+
     fetch(`${domain}/measures`)
         .then(response => response.json())
         .then(json => {Array.from(json).forEach(measure => {new Measure(measure.id, measure.measure, measure.divisible)})})
         .then(() => {
             fetch(`${domain}/ingredients`)
                 .then(response => response.json())
-                .then(json => {Array.from(json).forEach(ingredient => {new Ingredient(ingredient.id, ingredient.name, ingredient.preferred_measure_id)})}) // preferred_measure_id must be snake_case here for compatibility
+                .then(json => {Array.from(json).forEach(ingredient => {new Ingredient(ingredient.id, ingredient.name, ingredient.measure_id)})}) // measure_id must be snake_case here for compatibility
                 .then(() => {
                     fetch(`${domain}/quantities`)
                         .then(response => response.json())
@@ -518,4 +521,32 @@ function removeIngredient(ingDiv) {
 
 function removeCard(card) {
     card.parentElement.removeChild(card)
+}
+
+function mIndex() {
+    fetch(`${domain}/measures`).then(response => response.json()).then(json => {
+        const ul = document.createElement('ul')
+        Array.from(json).forEach(measure => {
+            const li = document.createElement('li')
+            const liul = document.createElement('ul')
+
+            liul.textContent = `${measure.measure} (${measure.divisible ? 'Divisible' : 'Non-Divisible'}) - ingredients:`
+
+            const ingredients = Array.from(measure.ingredients)
+            ingredients.forEach(ingredient => {
+                const liulli = document.createElement('li')
+                liulli.textContent = ingredient.name
+
+                liul.appendChild(liulli)
+            })
+
+            li.appendChild(liul)
+
+            ul.appendChild(li)
+        })
+
+        const main = document.querySelector('main')
+
+        main.appendChild(ul)
+    })
 }

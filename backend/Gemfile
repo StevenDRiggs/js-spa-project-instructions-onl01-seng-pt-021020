@@ -50,3 +50,6 @@ gem 'bigdecimal', '>= 2.0'
 
 # For fractional measures
 gem 'fraction'
+
+# JSON serializing
+gem 'active_model_serializers'
