@@ -112,20 +112,20 @@ function loadIngredients() {
     Ingredient._all = []
 
     fetch(`${domain}/measures`)
-    .then(response => response.json())
-    .then(json => {Array.from(json).forEach(measure => {new Measure(measure.id, measure.measure, measure.divisible)})})
-    .then(() => {
-        fetch(`${domain}/ingredients`)
         .then(response => response.json())
-        .then(json => {Array.from(json).forEach(ingredient => {new Ingredient(ingredient.id, ingredient.name, ingredient.preferred_measure_id)})}) // preferred_measure_id must be snake_case here for compatibility
+        .then(json => {Array.from(json).forEach(measure => {new Measure(measure.id, measure.measure, measure.divisible)})})
         .then(() => {
-            fetch(`${domain}/quantities`)
-            .then(response => response.json())
-            .then(json => {Array.from(json).forEach(quantity => {new Quantity(quantity.id, quantity.quantity)})})
-            .then(buildMenus)
-            .then(configureCalculateButton)
+            fetch(`${domain}/ingredients`)
+                .then(response => response.json())
+                .then(json => {Array.from(json).forEach(ingredient => {new Ingredient(ingredient.id, ingredient.name, ingredient.preferred_measure_id)})}) // preferred_measure_id must be snake_case here for compatibility
+                .then(() => {
+                    fetch(`${domain}/quantities`)
+                        .then(response => response.json())
+                        .then(json => {Array.from(json).forEach(quantity => {new Quantity(quantity.id, quantity.quantity)})})
+                        .then(buildMenus)
+                        .then(configureCalculateButton)
+                })
         })
-    })
 }
 
 function buildMenus() {
@@ -215,6 +215,7 @@ function buildMeasures(ingredientMenus) {
     datatext.placeholder = 'Measurement'
     datatext.addEventListener('change', event => {
         setDivisible(event.currentTarget.parentElement)
+        divisibleChange(event.currentTarget.patentElement)
         addIngredientButton(event.currentTarget.parentElement)
     })
 
@@ -248,7 +249,6 @@ function buildMeasures(ingredientMenus) {
     ingredientMenus.appendChild(divisibleCheckBox)
 }
 
-//TODO: enable this to activate when other fields change it
 function divisibleChange(menuDiv) {
     const divisible = menuDiv.querySelector('input#divisible').checked
     const quantities = menuDiv.querySelector('datalist#quantities')
@@ -281,7 +281,7 @@ function addServings() {
         servingsDiv.classList.add('servings')
 
         fieldset.appendChild(servingsDiv)
-        
+
         originalServings = document.createElement('input')
         originalServings.type = 'number'
         originalServings.name = 'original-servings'
@@ -408,7 +408,7 @@ function addIngredient(menuDiv) {
                 ingredient: ingredientObj
             })
         })
-        .then(loadIngredients)
+            .then(loadIngredients)
     }
 }
 
@@ -437,9 +437,13 @@ function morphDiv(menuDiv, quantityText, measureText, ingredientText) {
     divContainer.appendChild(newDiv)
 }
 
-//TODO: disable this until form is filled out
 function configureCalculateButton() {
     const calcBtn = document.querySelector('button#calculate')
+    const display = document.querySelector('div.display')
+    const makes = document.querySelector('input#original-servings').value
+    const desired = document.querySelector('input#desired-servings').value
+
+    calcBtn.disabled = !display && !(!!makes && !!desired)
     calcBtn.addEventListener('click', event => {
         event.stopImmediatePropagation()
         event.preventDefault()
@@ -473,39 +477,39 @@ function calculate() {
             desired: desiredServings
         })
     })
-    .then(response => response.json())
-    .then(json => {
-        const main = document.querySelector('main')
-        const form = document.querySelector('form')
-        
-        const card = document.createElement('div')
-        card.className = 'card'
-        card.classList.add('card', 'container')
-        const ul = document.createElement('ul')
-        card.appendChild(ul)
+        .then(response => response.json())
+        .then(json => {
+            const main = document.querySelector('main')
+            const form = document.querySelector('form')
 
-        Array.from(json.new_recipe).forEach(ingredientItem => {
-            const recipeItem = document.createElement('li')
-            recipeItem.classList.add('calculated-display-item')
-            recipeItem.textContent = `${ingredientItem.ingredient} - ${ingredientItem.quantity} ${ingredientItem.measure}`
-            ul.appendChild(recipeItem)
+            const card = document.createElement('div')
+            card.className = 'card'
+            card.classList.add('card', 'container')
+            const ul = document.createElement('ul')
+            card.appendChild(ul)
+
+            Array.from(json.new_recipe).forEach(ingredientItem => {
+                const recipeItem = document.createElement('li')
+                recipeItem.classList.add('calculated-display-item')
+                recipeItem.textContent = `${ingredientItem.ingredient} - ${ingredientItem.quantity} ${ingredientItem.measure}`
+                ul.appendChild(recipeItem)
+            })
+
+            const makes = document.createElement('p')
+            makes.className = 'card-makes'
+            makes.textContent = `Makes ${json.makes} servings`
+            card.appendChild(makes)
+
+            const removeBtn = document.createElement('button')
+            removeBtn.classList.add('removeX', 'btn-danger', 'text-center')
+            removeBtn.textContent = 'X'
+            removeBtn.addEventListener('click', event => {
+                event.preventDefault()
+                removeCard(event.currentTarget.parentElement)})
+            card.appendChild(removeBtn)
+
+            main.insertBefore(card, form)
         })
-
-        const makes = document.createElement('p')
-        makes.className = 'card-makes'
-        makes.textContent = `Makes ${json.makes} servings`
-        card.appendChild(makes)
-
-        const removeBtn = document.createElement('button')
-        removeBtn.classList.add('removeX', 'btn-danger', 'text-center')
-        removeBtn.textContent = 'X'
-        removeBtn.addEventListener('click', event => {
-            event.preventDefault()
-            removeCard(event.currentTarget.parentElement)})
-        card.appendChild(removeBtn)
-
-        main.insertBefore(card, form)
-    })
 }
 
 function removeIngredient(ingDiv) {
