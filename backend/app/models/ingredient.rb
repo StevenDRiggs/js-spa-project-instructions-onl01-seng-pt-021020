@@ -4,10 +4,10 @@ class Ingredient < ApplicationRecord
   end
 
   def preferred_measure=(measure)
-    self.measure_id = measure.id
+    self.preferred_measure_id = measure.id
   end
 
   def preferred_measure
-    Measure.find(self.measure_id).measure
+    Measure.find(self.preferred_measure_id).measure
   end
 end

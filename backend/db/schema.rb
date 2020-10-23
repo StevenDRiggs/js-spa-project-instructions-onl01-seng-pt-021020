@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_09_20_212025) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "measure_id"
+    t.integer "preferred_measure_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
